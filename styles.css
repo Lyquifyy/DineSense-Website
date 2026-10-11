@@ -159,6 +159,16 @@ h1{max-width:610px;font-size:clamp(3.35rem,5vw,4.45rem);line-height:.98;letter-s
  .brand-footer img{width:30px;height:30px}
  .site-footer>span{font-size:10px}
 }
+.info-page{width:min(760px,calc(100% - 40px));min-height:calc(100vh - 170px);margin:0 auto;padding:clamp(70px,10vw,130px) 0}
+.info-page .data-label{color:var(--ember);margin-bottom:18px}
+.info-page h1{max-width:680px}
+.info-page>p:not(.data-label){max-width:610px;margin-top:24px;color:var(--muted);font-size:17px;line-height:1.65}
+.info-page>.button{margin-top:32px}
+.info-page .info-note{font-size:13px!important}
+.info-page .info-note a,.site-footer>a:not(.brand):not(.footer-top){color:var(--paper)}
+.info-page section{max-width:660px;margin-top:38px;padding-top:28px;border-top:1px solid var(--line)}
+.info-page section h2{font:600 25px/1.2 var(--serif)}
+.info-page section p{margin-top:13px;color:var(--muted);font-size:15px;line-height:1.7}
 @media(max-width:370px){
  .site-header,.site-footer,.hero,.quick-flow,.how-section,.estimate-section,.pilot-section{width:calc(100% - 32px)}
  .primary-nav a{font-size:8px}
