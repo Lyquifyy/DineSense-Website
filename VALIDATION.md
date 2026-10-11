@@ -1,0 +1,49 @@
+# Website overhaul validation
+
+Validated locally on October 11, 2026. This record covers the static website, not a published release.
+
+## Source and capture evidence
+
+- Current SwiftUI Debug app built successfully from `b783e95` for iPhone 17 Pro Max / iOS 26.5 Simulator. No app source changes were made.
+- Ten fresh app/Lock Screen views use deterministic `find` and `simple` demo scenarios and dark appearance. The Lock Screen is a real ActivityKit Live Activity, with the system wallpaper. It was ended after capture; the temporary status-bar override was cleared.
+- The bowl remains consistent: suggestion without cheese, then extra chicken and no sour cream or cheese, ending at 700 cal / 76P / 62C / 20F across ticket, pick and Lock Screen. Restaurant figures and source URLs are demo fixtures, not live nutrition claims.
+- Twenty responsive WebP files (440 / 880 widths), about 1.1 MiB total, plus the current app mark. Explicit dimensions reserve image space; the main hero image has high priority and a responsive preload, later images use lazy loading. Fonts remain licensed and self-hosted.
+- `assets/SOURCES.md` and per-image JSON/EXIF metadata record provenance and refresh instructions. An origin scan found 22 raster assets and no missing provenance, including the unused historical hero.
+
+## Local browser checks
+
+Codex in-app browser, served from the existing static files at `http://127.0.0.1:8765/`.
+
+| Viewport   | Result                                                                                |
+| ---------- | ------------------------------------------------------------------------------------- |
+| 1440 × 900 | Desktop hero and sticky walkthrough; order, Lock Screen and nutrition crops inspected |
+| 1024 × 768 | Two-column hero; desktop enhancement enabled                                          |
+| 390 × 844  | Stacked mobile layout; hero, source crops, Support and Privacy inspected              |
+| 320 × 740  | Narrow layout, wrapped controls, no horizontal overflow                               |
+| 844 × 390  | Landscape reflow; static walkthrough                                                  |
+| 720 × 450  | Reflow equivalent to a 1440 × 900 viewport at 200%; static walkthrough                |
+| 506 × 776  | User pane layout; stacked previews                                                    |
+
+- All listed viewport widths had zero horizontal document overflow. Images reserved their space during the inspected loads; no persistent blank image or visible layout jump remained. No quantitative CLS or throttled-network benchmark was recorded.
+- Direct numbered chapter navigation selects the correct preview and focuses its heading. Native Page Down followed by Page Up changed `adjust-order → exact-order → adjust-order`. Direct Lock Screen navigation selected the handoff preview.
+- Keyboard Tab reveals the skip link; Enter focuses the H1. Enter opens the native FAQ disclosure and retains a visible focus outline.
+- JavaScript-absent fixture: zero script elements, eight original scenes displayed without clipping, all copy retained, chapter anchors work. This tests the authored fallback without changing browser-wide JavaScript settings.
+- Reduced-motion fixture: the preference branch was forced in an ignored local test page; all original scenes remained static, the sticky enhancement was off, animation was `none` and scrolling was `auto`. The actual `prefers-reduced-motion` CSS and listener were inspected. OS-level preference switching was not exercised.
+- No browser warnings or errors were recorded during the functional checks.
+- Main foreground/background contrast: cream 16.54:1; muted copy on warm black 8.64:1 and on the source surface 7.84:1; brass 8.22:1; primary button text 10.20:1.
+- One H1 per page, logical H2/H3 order, descriptive app-image alternatives, decorative clones hidden from accessibility, explicit navigation labels and native FAQ semantics checked. This is not a complete screen-reader audit.
+
+## Static checks and product review
+
+- `node --check script.js` passed; `git diff --check` passed.
+- All local page, anchor, font, icon, screenshot and script references resolve. Pilot links consistently use the existing inbox, prefilled subject and optional city/iPhone fields. No email was sent.
+- Support and Privacy navigation was exercised locally. External provider links were preserved; external destination availability was not audited.
+- The ten substantive privacy sections were compared with the original Git version after normalizing markup whitespace: unchanged. Support's report button name matches the current SwiftUI app.
+- Claims were compared against the current app product brief and Find, Dish, Build, Saved, Settings, Health and demo implementations: iPhone/iOS 26, account/Pro, meal styles and numeric targets, manual tracker copying, optional read-only Health, provenance and estimated components. No public release, Android, food diary, automatic tracker logging or restaurant ordering claim is made.
+- One design detector pass ran in degraded regex-only mode; its sole font-saturation warning conflicts with the user's explicitly pinned Fraunces system and was retained intentionally. A fresh, read-only finish reviewer inspected twelve desktop/mobile/section captures and returned **ship**, with no material fixes. The review covered visuals/source, not independent interaction execution.
+
+## Delivery and remaining release evidence
+
+Review captures are local, ignored files under `.impeccable/review/`; the primary ones are `desktop.jpg` and `mobile.jpg`. `PRODUCT.md`, `DESIGN.md` and `assets/SOURCES.md` are tracked documentation.
+
+Actual browser-level 200% zoom could not be controlled by the in-app browser; the equivalent CSS viewport reflow was checked instead. Native browser zoom, OS reduced-motion toggling, physical-device Safari/VoiceOver, and deployed hosting/cache behavior remain release checks. No deployed-site or physical-device evidence is claimed. No backend, public API, signup service or analytics was added. Publishing remains a separate action.
