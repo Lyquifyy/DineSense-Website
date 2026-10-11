@@ -1,0 +1,12 @@
+{
+  "prompt": "DineSense SwiftUI simulator capture, demo data; source commit b783e95; 2026-10-11; scenario find; screenshot target. Resized only.",
+  "kind": "actual-app-screenshot",
+  "sourceCommit": "b783e95",
+  "capturedAt": "2026-10-11",
+  "dimensions": [
+    440,
+    956
+  ],
+  "derivedWithoutRetouching": true,
+  "details": "See assets/SOURCES.md for scenario and refresh steps."
+}
