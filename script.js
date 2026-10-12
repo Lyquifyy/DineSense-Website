@@ -1,5 +1,93 @@
 "use strict";
 
+// The hero is a poster until motion is allowed and it enters the viewport.
+// User playback choices survive scrolling, preference changes and tab switches.
+const heroLoop = document.querySelector(".hero-loop");
+const motionToggle = document.querySelector(".motion-toggle");
+const demoVideo = document.querySelector(".demo-video");
+if (demoVideo) {
+  const showVideoError = () => {
+    document.querySelector(".demo-status").hidden = false;
+  };
+  demoVideo.addEventListener("error", showVideoError);
+  demoVideo.querySelector("source")?.addEventListener("error", showVideoError);
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) demoVideo.pause();
+  });
+}
+if (heroLoop && motionToggle && "IntersectionObserver" in window) {
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
+  const connection = navigator.connection;
+  let inView = false;
+  let userWantsPlay = null;
+  let blocked = false;
+
+  function updateControl() {
+    motionToggle.textContent = heroLoop.paused
+      ? "Play animation"
+      : "Pause animation";
+  }
+
+  function syncPlayback() {
+    const automatic =
+      userWantsPlay === null && !reduceMotion.matches && !connection?.saveData;
+    const shouldPlay =
+      inView &&
+      !document.hidden &&
+      (automatic || userWantsPlay === true) &&
+      (!demoVideo || demoVideo.paused) &&
+      !blocked;
+    if (!shouldPlay) {
+      heroLoop.pause();
+      // Return to the still when a visitor turns reduced motion on.
+      if (
+        reduceMotion.matches &&
+        userWantsPlay !== true &&
+        heroLoop.hasAttribute("src")
+      ) {
+        heroLoop.removeAttribute("src");
+        heroLoop.load();
+      }
+      updateControl();
+      return;
+    }
+    if (!heroLoop.hasAttribute("src")) heroLoop.src = heroLoop.dataset.src;
+    heroLoop.play().catch((error) => {
+      if (error.name !== "AbortError") blocked = true;
+      updateControl();
+    });
+  }
+
+  motionToggle.hidden = false;
+  motionToggle.addEventListener("click", () => {
+    userWantsPlay = heroLoop.paused;
+    blocked = false;
+    syncPlayback();
+  });
+  heroLoop.addEventListener("play", updateControl);
+  heroLoop.addEventListener("pause", updateControl);
+  heroLoop.addEventListener("error", () => {
+    blocked = true;
+    heroLoop.removeAttribute("src");
+    heroLoop.load();
+    updateControl();
+  });
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      inView = entry.isIntersecting;
+      syncPlayback();
+    },
+    { threshold: 0 },
+  );
+  observer.observe(heroLoop);
+  reduceMotion.addEventListener("change", syncPlayback);
+  connection?.addEventListener("change", syncPlayback);
+  document.addEventListener("visibilitychange", syncPlayback);
+  demoVideo?.addEventListener("play", syncPlayback);
+  demoVideo?.addEventListener("pause", syncPlayback);
+  demoVideo?.addEventListener("ended", syncPlayback);
+}
+
 // Native anchor navigation, with a useful keyboard destination.
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener("click", () => {

@@ -55,7 +55,7 @@ This is a code-first implementation of the user-pinned cinematic app-preview dir
 
 **Key Characteristics:**
 
-- Warm black and cream, with sage for action and brass for identity and chapter numbers.
+- Warm black and cream, with sage for action and brass for identity.
 - Actual dark app screenshots, readable captions and explicit demo disclosures.
 - Large serif promises, compact sans-serif explanation, fine rules and generous space.
 - Native scrolling, a progressively enhanced walkthrough and complete static scenes.
@@ -65,7 +65,7 @@ This is a code-first implementation of the user-pinned cinematic app-preview dir
 The frontmatter records implemented color values; CSS remains the runtime authority.
 
 - **Primary — sage:** filled pilot actions, link hover, focus outlines, current chapter and the order quotation. The hover shade lightens the filled action while its ink stays dark.
-- **Secondary — brass:** the Fraunces wordmark and small chapter numbers. It is a restrained identifying detail.
+- **Secondary — brass:** the Fraunces wordmark. It is a restrained identifying detail.
 - **Neutral — warm black, cream, muted and line:** page ground, primary text, supporting copy and thin separators. The nutrition section introduces a quiet green-tinted ground defined in CSS.
 - Source labels and approximation marks remain legible in the original screenshots; color alone never carries the published-versus-estimated distinction.
 
@@ -76,19 +76,19 @@ Self-hosted Fraunces regular and semibold pair with the system sans-serif stack.
 - **Display and headlines:** Fraunces regular, balanced wrapping and tight tracking. The hero is capped at 10ch on desktop; chapter headlines stay short enough to read alongside a phone.
 - **Subheadings:** Fraunces regular at `clamp(30px, 3.2vw, 44px)`, with the same heading line height and tracking. Page-specific responsive overrides live in CSS.
 - **Body:** the default role above; hero explanation uses 18px/1.7 and a 420px maximum width. Story paragraphs use a 440px maximum; general paragraphs are capped at 65ch.
-- **Labels and captions:** system sans, generally 11–14px on desktop, with muted color and visible qualifying language. Chapter numbers and the example target use tabular numerals.
+- **Labels and captions:** system sans, generally 11–14px on desktop, with muted color and visible qualifying language. The example target uses tabular numerals. Section labels use names only.
 - **Wordmark:** Fraunces semibold, 26px on desktop. Small screens reduce its size alongside the mark.
 
 ## Layout
 
-The shared centered shell has a 1240px maximum and 56px side gutters. The desktop hero pairs its promise and actions with overlapping real results and edited-order screens. A fine-rule introduction leads into four chapters and eight stages:
+The shared centered shell has a 1240px maximum and 56px side gutters. The desktop hero pairs its promise and actions with an eight-second screen-only loop of actual app captures. A wide, user-initiated 22-second product demo follows, with native controls, a transcript and a visible demo disclosure. A fine-rule introduction then leads into four chapters and eight stages:
 
-| Chapter        | First stage                                      | Second stage                               |
-| -------------- | ------------------------------------------------ | ------------------------------------------ |
-| 01 Your meal   | Meal styles: Lighter, Regular meal, More protein | Numeric target: 650 calories, 50 g protein |
-| 02 What fits   | Ranked dishes and suggested changes              | Nearby restaurants and map                 |
-| 03 Your order  | Supported ingredient changes                     | Exact edited order ticket                  |
-| 04 Ready to go | Pick, copy numbers and save                      | Actual iOS Lock Screen Live Activity       |
+| Chapter     | First stage                                      | Second stage                               |
+| ----------- | ------------------------------------------------ | ------------------------------------------ |
+| Your meal   | Meal styles: Lighter, Regular meal, More protein | Numeric target: 650 calories, 50 g protein |
+| What fits   | Ranked dishes and suggested changes              | Nearby restaurants and map                 |
+| Your order  | Supported ingredient changes                     | Exact edited order ticket                  |
+| Ready to go | Pick, copy numbers and save                      | Actual iOS Lock Screen Live Activity       |
 
 The nutrition provenance section follows the journey with paired published-source and estimated-parts crops, then practical FAQs, a repeated pilot action and the footer. Both meal-style and numeric-target audiences receive a full stage.
 
@@ -100,9 +100,9 @@ Support and Privacy use the same header, footer, type, palette and focus treatme
 
 ## Elevation & Depth
 
-Thin rules and tonal ground changes define the editorial structure. Phone frames provide the principal raised element with `0 25px 55px #0006` shadows; they are evidence displays, not interactive app simulations. The hero layers a slightly dimmed results screen behind the edited-order screen, rotated −7° and 4° respectively. Fine elliptical outlines provide quiet atmosphere within the hero's clipped paint bounds.
+Thin rules and tonal ground changes define the editorial structure. Phone frames provide the principal raised element with `0 25px 55px #0006` shadows; they are evidence displays, not interactive app simulations. The hero layers a dimmed meal-target screen behind a sequence of meal style, results, edited-order and picked screens, rotated −7° and 4° respectively.
 
-The front hero phone enters over 1s and the back phone over 1.1s using the shared `cubic-bezier(0.16, 1, 0.3, 1)` easing. Enhanced walkthrough previews use short 0.4s opacity crossfades and 0.55s, 12px/0.98-scale settling; outgoing visibility is delayed to let the fade finish. There is no scroll hijacking. Reduced motion removes animation, transitions and smooth scrolling, retains the composed hero angles and restores the static walkthrough.
+Hero screens crossfade in the rendered loop. It runs only while visible and the document is active, with a visible pause control. Reduced motion and data saver retain the poster until explicit playback. Manual pause survives scrolling. The full demo loads when played and pauses when the tab becomes hidden. Enhanced walkthrough previews use short 0.4s opacity crossfades and 0.55s, 12px/0.98-scale settling; outgoing visibility is delayed to let the fade finish. There is no scroll hijacking. Reduced motion removes transitions and smooth scrolling, retains the composed hero poster and restores the static walkthrough.
 
 ## Shapes
 

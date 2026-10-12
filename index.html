@@ -28,9 +28,7 @@
     <link
       rel="preload"
       as="image"
-      href="assets/previews/edited-order-880.webp"
-      imagesrcset="assets/previews/edited-order-440.webp 440w, assets/previews/edited-order-880.webp 880w"
-      imagesizes="(max-width: 600px) 80vw, 330px"
+      href="assets/video/dinesense-loop-poster.jpg"
     />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
@@ -75,8 +73,8 @@
               >Request pilot access
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M5 12h14m-6-6 6 6-6 6" /></svg></a
-            ><a class="text-link" href="#how-it-works"
-              >Explore the app <span aria-hidden="true">↓</span></a
+            ><a class="text-link" href="#watch-dinesense"
+              >Watch DineSense <span aria-hidden="true">↓</span></a
             >
           </div>
           <p class="availability">
@@ -85,39 +83,86 @@
           </p>
         </div>
         <div class="hero-stage">
-          <div class="hero-orbit" aria-hidden="true"></div>
-          <div class="hero-back phone">
-            <img
-              src="assets/previews/results-880.webp"
-              srcset="
-                assets/previews/results-440.webp 440w,
-                assets/previews/results-880.webp 880w
-              "
-              sizes="(max-width: 600px) 80vw, 330px"
-              width="1320"
-              height="2868"
-              alt="Find results with a 650-calorie, 50-gram protein target and published and estimated dishes."
-              loading="lazy"
-              decoding="async"
-            />
+          <video
+            id="hero-loop"
+            class="hero-loop"
+            muted
+            loop
+            playsinline
+            preload="none"
+            width="1000"
+            height="1120"
+            aria-hidden="true"
+            poster="assets/video/dinesense-loop-poster.jpg"
+            data-src="assets/video/dinesense-loop.mp4"
+          ></video>
+          <div class="hero-media-footer">
+            <p class="preview-disclosure">Actual app screens · demo data</p>
+            <button
+              class="motion-toggle"
+              type="button"
+              aria-controls="hero-loop"
+              hidden
+            >
+              Play animation
+            </button>
           </div>
-          <div class="hero-front phone">
-            <img
-              src="assets/previews/edited-order-880.webp"
-              srcset="
-                assets/previews/edited-order-440.webp 440w,
-                assets/previews/edited-order-880.webp 880w
-              "
-              sizes="(max-width: 600px) 80vw, 330px"
-              width="1320"
-              height="2868"
-              alt="The edited chicken burrito bowl: extra chicken, white rice, black beans, no sour cream or cheese. 700 calories and 76 grams protein."
-              fetchpriority="high"
-              decoding="async"
-            />
-          </div>
-          <p class="preview-disclosure">Actual app screens · demo data</p>
         </div>
+      </section>
+      <section
+        class="demo-section shell"
+        id="watch-dinesense"
+        aria-labelledby="demo-title"
+      >
+        <div class="demo-heading">
+          <h2 id="demo-title" data-anchor-focus>Watch DineSense.</h2>
+          <p>From choosing a meal to knowing what to ask for. In 22 seconds.</p>
+        </div>
+        <figure>
+          <video
+            class="demo-video"
+            controls
+            playsinline
+            preload="none"
+            width="1600"
+            height="900"
+            poster="assets/video/dinesense-demo-poster.jpg"
+            aria-label="DineSense product demo, 22 seconds, silent"
+            aria-describedby="demo-disclosure"
+          >
+            <source src="assets/video/dinesense-demo.mp4" type="video/mp4" />
+            <a href="assets/video/dinesense-demo.mp4"
+              >Download the DineSense demo</a
+            >.
+          </video>
+          <p class="demo-status" role="status" hidden>
+            The video couldn’t load.
+            <a href="assets/video/dinesense-demo.mp4">Download the MP4</a>
+            or read the demo below.
+          </p>
+          <figcaption id="demo-disclosure">
+            Animated actual app screens · demo data · Silent. iPhone with iOS
+            26+. Account and DineSense Pro required.
+          </figcaption>
+        </figure>
+        <details class="demo-transcript">
+          <summary>Read the demo</summary>
+          <p>
+            Bring your meal’s numbers, or choose Lighter, Regular meal, or More
+            protein. Compare nearby dishes and see the changes to ask for.
+            Adjust the order: extra chicken, no sour cream or cheese. See the
+            exact order and its new totals. Keep the words on your Lock Screen,
+            and copy the numbers for your tracker.
+          </p>
+          <p>
+            Nutrition values are examples. Published figures and estimates
+            remain distinct. Request access to the invite-only iPhone pilot at
+            DineSense.
+          </p>
+        </details>
+        <a class="text-link demo-explore" href="#how-it-works"
+          >Explore the app <span aria-hidden="true">↓</span></a
+        >
       </section>
       <div class="opening-note shell">
         <p>A meal you can actually order.</p>
@@ -132,10 +177,9 @@
         aria-label="A meal, from idea to order"
       >
         <nav class="chapter-nav" aria-label="Walkthrough chapters">
-          <a href="#your-meal"><span>01</span> Your meal</a
-          ><a href="#nearby"><span>02</span> What fits</a
-          ><a href="#your-order"><span>03</span> Your order</a
-          ><a href="#handoff"><span>04</span> Ready to go</a>
+          <a href="#your-meal">Your meal</a><a href="#nearby">What fits</a
+          ><a href="#your-order">Your order</a
+          ><a href="#handoff">Ready to go</a>
         </nav>
         <div class="story-layout">
           <div class="story-chapters">
