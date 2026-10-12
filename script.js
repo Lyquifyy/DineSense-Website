@@ -4,17 +4,6 @@
 // User playback choices survive scrolling, preference changes and tab switches.
 const heroLoop = document.querySelector(".hero-loop");
 const motionToggle = document.querySelector(".motion-toggle");
-const demoVideo = document.querySelector(".demo-video");
-if (demoVideo) {
-  const showVideoError = () => {
-    document.querySelector(".demo-status").hidden = false;
-  };
-  demoVideo.addEventListener("error", showVideoError);
-  demoVideo.querySelector("source")?.addEventListener("error", showVideoError);
-  document.addEventListener("visibilitychange", () => {
-    if (document.hidden) demoVideo.pause();
-  });
-}
 if (heroLoop && motionToggle && "IntersectionObserver" in window) {
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
   const connection = navigator.connection;
@@ -35,7 +24,6 @@ if (heroLoop && motionToggle && "IntersectionObserver" in window) {
       inView &&
       !document.hidden &&
       (automatic || userWantsPlay === true) &&
-      (!demoVideo || demoVideo.paused) &&
       !blocked;
     if (!shouldPlay) {
       heroLoop.pause();
@@ -83,9 +71,6 @@ if (heroLoop && motionToggle && "IntersectionObserver" in window) {
   reduceMotion.addEventListener("change", syncPlayback);
   connection?.addEventListener("change", syncPlayback);
   document.addEventListener("visibilitychange", syncPlayback);
-  demoVideo?.addEventListener("play", syncPlayback);
-  demoVideo?.addEventListener("pause", syncPlayback);
-  demoVideo?.addEventListener("ended", syncPlayback);
 }
 
 // Native anchor navigation, with a useful keyboard destination.

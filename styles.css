@@ -313,54 +313,6 @@ strong {
   color: var(--muted);
   font-size: 11px;
 }
-.demo-section {
-  padding-block: 54px 68px;
-  border-top: 1px solid var(--line);
-}
-.demo-heading {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 32px;
-  margin-bottom: 32px;
-}
-.demo-heading p {
-  max-width: 30ch;
-  font-size: 16px;
-  color: var(--muted);
-}
-.demo-video {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  background: var(--bg);
-  border: 1px solid var(--line);
-  border-radius: 5px;
-}
-.demo-section figcaption,
-.demo-status {
-  margin-top: 16px;
-  color: var(--muted);
-  font-size: 13px;
-}
-.demo-transcript {
-  margin-block: 22px;
-  font-size: 14px;
-}
-.demo-transcript summary {
-  width: fit-content;
-  padding-block: 8px;
-  cursor: pointer;
-}
-.demo-transcript p {
-  max-width: 70ch;
-  margin-top: 14px;
-  color: var(--muted);
-}
-.demo-explore {
-  display: inline-block;
-}
 .opening-note {
   display: flex;
   justify-content: space-between;
@@ -941,17 +893,6 @@ details p a {
   }
   .motion-toggle {
     font-size: 11px;
-  }
-  .demo-section {
-    padding-block: 36px 42px;
-  }
-  .demo-heading {
-    display: block;
-    margin-bottom: 24px;
-  }
-  .demo-heading p {
-    margin-top: 16px;
-    max-width: 35ch;
   }
   .opening-note {
     display: block;

@@ -1,6 +1,6 @@
 # DineSense launch motion
 
-Marketing authoring source for the website hero, full product demo and vertical social clips. App source is unchanged. The website integration is static HTML, CSS and JavaScript.
+Marketing authoring source for the website hero and vertical social clips, plus a full product film retained for marketing review. App source is unchanged. The website integration is static HTML, CSS and JavaScript.
 
 ## Finished assets and preview
 
@@ -9,13 +9,13 @@ The reviewed files are tracked in the repository:
 | File | Use | Format | Length |
 | --- | --- | --- | --- |
 | `../../assets/video/dinesense-loop.mp4` | Screen-only website hero | 1000 × 1120 | 8 seconds |
-| `../../assets/video/dinesense-demo.mp4` | Full website product demo | 1600 × 900 | 22 seconds |
+| `../../assets/video/dinesense-demo.mp4` | Marketing film, not embedded on the website | 1600 × 900 | 22 seconds |
 | `exports/dinesense-numbers.mp4` | Macro-target social cut | 1080 × 1920 | 12 seconds |
 | `exports/dinesense-meal-styles.mp4` | Meal-style social cut | 1080 × 1920 | 10 seconds |
 
 Silent H.264 / yuv420p / BT.709, with matching JPEG posters. Section labels contain names only, without sequence numbers or slash prefixes.
 
-Run `./run.ps1 website`, then open http://localhost:3122 for the integrated website. The hero plays only while visible, with a pause control. Reduced motion, data saver, unavailable autoplay and no JavaScript retain a still. Explicit playback remains available. The full demo uses native controls, a transcript, demo disclosure, and `preload="none"`.
+Run `./run.ps1 website`, then open http://localhost:3122 for the integrated website. The hero plays only while visible, with a pause control. Reduced motion, data saver, unavailable autoplay and no JavaScript retain a still. Explicit playback remains available. The hero leads directly into the existing guided walkthrough; there is no separate video-player section.
 
 Run `./run.ps1 serve`, then open http://localhost:3121 for the authoring film review after rendering. That page reads ignored `out/web-ready/` files. The website and tracked social handoff do not depend on that directory.
 
@@ -45,7 +45,7 @@ Compositions: `src/Root.tsx`. Screen-only loop: `src/HeroLoop.tsx`. Full demo sc
 
 ## Website delivery
 
-The website uses only the finished assets. Keep the existing meal walkthrough, pilot email actions, privacy/support pages and demo disclosures. `index.html` contains the hero and full demo; `script.js` controls optional motion; `styles.css` handles their responsive layout. No new analytics, backend or public app-download claim is introduced.
+The website uses only the finished assets. Keep the existing meal walkthrough, pilot email actions, privacy/support pages and demo disclosures. `index.html` contains the hero and guided walkthrough; `script.js` controls optional motion; `styles.css` handles their responsive layout. The full product film is retained as an asset for marketing review, without a player or link on the landing page. No new analytics, backend or public app-download claim is introduced.
 
 GitHub Pages currently publishes `main` at the repository root. Deliver changes through the website PR; merging it updates the public site. Social files remain a handoff for native platform upload.
 

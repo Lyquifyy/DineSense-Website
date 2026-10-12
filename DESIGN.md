@@ -81,7 +81,7 @@ Self-hosted Fraunces regular and semibold pair with the system sans-serif stack.
 
 ## Layout
 
-The shared centered shell has a 1240px maximum and 56px side gutters. The desktop hero pairs its promise and actions with an eight-second screen-only loop of actual app captures. A wide, user-initiated 22-second product demo follows, with native controls, a transcript and a visible demo disclosure. A fine-rule introduction then leads into four chapters and eight stages:
+The shared centered shell has a 1240px maximum and 56px side gutters. The desktop hero pairs its promise and actions with an eight-second screen-only loop of actual app captures. “Explore the app” leads into the guided walkthrough. A fine-rule introduction follows the hero, then four chapters and eight stages:
 
 | Chapter     | First stage                                      | Second stage                               |
 | ----------- | ------------------------------------------------ | ------------------------------------------ |
@@ -102,7 +102,7 @@ Support and Privacy use the same header, footer, type, palette and focus treatme
 
 Thin rules and tonal ground changes define the editorial structure. Phone frames provide the principal raised element with `0 25px 55px #0006` shadows; they are evidence displays, not interactive app simulations. The hero layers a dimmed meal-target screen behind a sequence of meal style, results, edited-order and picked screens, rotated −7° and 4° respectively.
 
-Hero screens crossfade in the rendered loop. It runs only while visible and the document is active, with a visible pause control. Reduced motion and data saver retain the poster until explicit playback. Manual pause survives scrolling. The full demo loads when played and pauses when the tab becomes hidden. Enhanced walkthrough previews use short 0.4s opacity crossfades and 0.55s, 12px/0.98-scale settling; outgoing visibility is delayed to let the fade finish. There is no scroll hijacking. Reduced motion removes transitions and smooth scrolling, retains the composed hero poster and restores the static walkthrough.
+Hero screens crossfade in the rendered loop. It runs only while visible and the document is active, with a visible pause control. Reduced motion and data saver retain the poster until explicit playback. Manual pause survives scrolling. Enhanced walkthrough previews use short 0.4s opacity crossfades and 0.55s, 12px/0.98-scale settling; outgoing visibility is delayed to let the fade finish. There is no scroll hijacking. Reduced motion removes transitions and smooth scrolling, retains the composed hero poster and restores the static walkthrough.
 
 ## Shapes
 
