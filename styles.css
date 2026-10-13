@@ -64,6 +64,8 @@ summary {
   -webkit-tap-highlight-color: transparent;
 }
 a:focus-visible,
+button:focus-visible,
+video:focus-visible,
 summary:focus-visible,
 [tabindex="-1"]:focus-visible {
   outline: 2px solid var(--sage);
@@ -259,9 +261,41 @@ strong {
   flex-shrink: 0;
 }
 .hero-stage {
-  height: 655px;
+  aspect-ratio: 1000 / 1120;
   position: relative;
-  isolation: isolate;
+  width: 100%;
+}
+.hero-loop {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1000 / 1120;
+}
+.hero-media-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 44px;
+}
+.motion-toggle {
+  flex-shrink: 0;
+  min-height: 44px;
+  padding: 10px 0 10px 10px;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 12px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+.motion-toggle:hover {
+  color: var(--sage);
+}
+.motion-toggle[hidden] {
+  display: none;
 }
 .phone {
   padding: 6px;
@@ -275,46 +309,9 @@ strong {
   width: 100%;
   border-radius: 32px;
 }
-.hero-front {
-  position: absolute;
-  width: 284px;
-  right: 8px;
-  top: 35px;
-  transform: rotate(4deg);
-  z-index: 2;
-  animation: phone-arrive 1s var(--ease) both;
-}
-.hero-back {
-  position: absolute;
-  width: 260px;
-  left: 10px;
-  top: 3px;
-  transform: rotate(-7deg);
-  z-index: 1;
-  filter: brightness(0.86);
-  animation: phone-arrive-back 1.1s var(--ease) both;
-}
-.hero-orbit {
-  position: absolute;
-  inset: 7% -6% 8% -3%;
-  border-radius: 50%;
-  border: 1px solid #343c3066;
-  transform: rotate(-26deg);
-}
-.hero-orbit:before {
-  content: "";
-  position: absolute;
-  inset: 45px -30px;
-  border: 1px solid #343c3055;
-  border-radius: 50%;
-}
 .preview-disclosure {
-  position: absolute;
-  bottom: -14px;
-  right: 10px;
   color: var(--muted);
   font-size: 11px;
-  letter-spacing: 0.035em;
 }
 .opening-note {
   display: flex;
@@ -354,11 +351,6 @@ strong {
   font-size: 13px;
   text-decoration: none;
   padding: 8px 0;
-}
-.chapter-nav span {
-  color: var(--brass);
-  font-size: 12px;
-  font-variant-numeric: tabular-nums;
 }
 .chapter-nav a:hover,
 .chapter-nav a[aria-current] {
@@ -660,28 +652,6 @@ details p a {
 .info-page .button svg {
   display: none;
 }
-@keyframes phone-arrive {
-  from {
-    opacity: 0.6;
-    transform: translateY(24px) rotate(4deg);
-    clip-path: inset(0 0 5% 0 round 38px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) rotate(4deg);
-    clip-path: inset(0 round 38px);
-  }
-}
-@keyframes phone-arrive-back {
-  from {
-    opacity: 0.6;
-    transform: translateY(12px) rotate(-7deg);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) rotate(-7deg);
-  }
-}
 @media (min-width: 960px) and (min-height: 740px) {
   .walkthrough.is-enhanced .chapter-nav {
     position: sticky;
@@ -762,17 +732,6 @@ details p a {
   }
 }
 @media (min-width: 960px) and (max-width: 1150px) {
-  .hero-front {
-    width: 250px;
-    right: -8px;
-  }
-  .hero-back {
-    width: 228px;
-    left: 0;
-  }
-  .hero-stage {
-    height: 600px;
-  }
   .hero {
     min-height: 740px;
   }
@@ -814,19 +773,6 @@ details p a {
   .hero h1 {
     font-size: clamp(47px, 6.6vw, 65px);
   }
-  .hero-stage {
-    height: 500px;
-  }
-  .hero-front {
-    width: 220px;
-    right: -5px;
-    top: 40px;
-  }
-  .hero-back {
-    width: 200px;
-    left: 0;
-    top: 0;
-  }
   .hero-description {
     font-size: 16px;
   }
@@ -840,14 +786,6 @@ details p a {
   }
   .hero .text-link {
     font-size: 13px;
-  }
-  .hero-orbit {
-    inset: 8% -4% 0;
-  }
-  .preview-disclosure {
-    font-size: 9px;
-    right: 0;
-    bottom: -48px;
   }
   .availability {
     font-size: 11px;
@@ -947,29 +885,14 @@ details p a {
     font-size: 11px;
   }
   .hero-stage {
-    height: 535px;
     width: min(100%, 390px);
     margin: auto;
   }
-  .hero-front {
-    width: 226px;
-    right: 10px;
-    top: 35px;
-  }
-  .hero-back {
-    width: 208px;
-    left: 10px;
-  }
-  .hero-orbit {
-    inset: 0 4% 4%;
-    transform: rotate(-25deg);
-  }
   .preview-disclosure {
     font-size: 10px;
-    right: 0;
-    left: 0;
-    text-align: center;
-    bottom: -8px;
+  }
+  .motion-toggle {
+    font-size: 11px;
   }
   .opening-note {
     display: block;
@@ -1163,17 +1086,6 @@ details p a {
   .hero-actions {
     gap: 15px;
   }
-  .hero-stage {
-    height: 475px;
-  }
-  .hero-front {
-    width: 202px;
-    right: 7px;
-  }
-  .hero-back {
-    width: 182px;
-    left: 7px;
-  }
   .source-crop {
     height: 215px;
   }
@@ -1193,12 +1105,6 @@ details p a {
     animation: none !important;
     transition: none !important;
   }
-  .hero-front {
-    transform: rotate(4deg);
-  }
-  .hero-back {
-    transform: rotate(-7deg);
-  }
 }
 /* Crops retain the source label and the actual component rows. */
 .source-crop img {
@@ -1207,7 +1113,7 @@ details p a {
 .source-crop-estimate img {
   margin-top: -61%;
 }
-/* Keep the atmospheric rings inside the hero's paint bounds. */
+/* Keep the hero media inside its paint bounds. */
 .hero {
   overflow: clip;
 }

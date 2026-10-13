@@ -28,9 +28,7 @@
     <link
       rel="preload"
       as="image"
-      href="assets/previews/edited-order-880.webp"
-      imagesrcset="assets/previews/edited-order-440.webp 440w, assets/previews/edited-order-880.webp 880w"
-      imagesizes="(max-width: 600px) 80vw, 330px"
+      href="assets/video/dinesense-loop-poster.jpg"
     />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
@@ -85,38 +83,30 @@
           </p>
         </div>
         <div class="hero-stage">
-          <div class="hero-orbit" aria-hidden="true"></div>
-          <div class="hero-back phone">
-            <img
-              src="assets/previews/results-880.webp"
-              srcset="
-                assets/previews/results-440.webp 440w,
-                assets/previews/results-880.webp 880w
-              "
-              sizes="(max-width: 600px) 80vw, 330px"
-              width="1320"
-              height="2868"
-              alt="Find results with a 650-calorie, 50-gram protein target and published and estimated dishes."
-              loading="lazy"
-              decoding="async"
-            />
+          <video
+            id="hero-loop"
+            class="hero-loop"
+            muted
+            loop
+            playsinline
+            preload="none"
+            width="1000"
+            height="1120"
+            aria-hidden="true"
+            poster="assets/video/dinesense-loop-poster.jpg"
+            data-src="assets/video/dinesense-loop.mp4"
+          ></video>
+          <div class="hero-media-footer">
+            <p class="preview-disclosure">Actual app screens · demo data</p>
+            <button
+              class="motion-toggle"
+              type="button"
+              aria-controls="hero-loop"
+              hidden
+            >
+              Play animation
+            </button>
           </div>
-          <div class="hero-front phone">
-            <img
-              src="assets/previews/edited-order-880.webp"
-              srcset="
-                assets/previews/edited-order-440.webp 440w,
-                assets/previews/edited-order-880.webp 880w
-              "
-              sizes="(max-width: 600px) 80vw, 330px"
-              width="1320"
-              height="2868"
-              alt="The edited chicken burrito bowl: extra chicken, white rice, black beans, no sour cream or cheese. 700 calories and 76 grams protein."
-              fetchpriority="high"
-              decoding="async"
-            />
-          </div>
-          <p class="preview-disclosure">Actual app screens · demo data</p>
         </div>
       </section>
       <div class="opening-note shell">
@@ -132,10 +122,9 @@
         aria-label="A meal, from idea to order"
       >
         <nav class="chapter-nav" aria-label="Walkthrough chapters">
-          <a href="#your-meal"><span>01</span> Your meal</a
-          ><a href="#nearby"><span>02</span> What fits</a
-          ><a href="#your-order"><span>03</span> Your order</a
-          ><a href="#handoff"><span>04</span> Ready to go</a>
+          <a href="#your-meal">Your meal</a><a href="#nearby">What fits</a
+          ><a href="#your-order">Your order</a
+          ><a href="#handoff">Ready to go</a>
         </nav>
         <div class="story-layout">
           <div class="story-chapters">

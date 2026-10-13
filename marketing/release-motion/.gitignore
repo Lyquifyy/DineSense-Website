@@ -1,0 +1,15 @@
+node_modules
+dist
+.DS_Store
+.env
+
+# Ignore the output video from Git but not videos you import into src/.
+out
+review
+
+# Local reference captures not used by any composition.
+public/screens/03-nearby-monograms.png
+public/screens/04-saved.jpg
+public/screens/nearby-880.webp*
+public/screens/estimated-parts-880.webp*
+public/screens/published-source-880.webp*

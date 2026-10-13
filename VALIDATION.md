@@ -47,3 +47,11 @@ Codex in-app browser, served from the existing static files at `http://127.0.0.1
 Review captures are local, ignored files under `.impeccable/review/`; the primary ones are `desktop.jpg` and `mobile.jpg`. `PRODUCT.md`, `DESIGN.md` and `assets/SOURCES.md` are tracked documentation.
 
 Actual browser-level 200% zoom could not be controlled by the in-app browser; the equivalent CSS viewport reflow was checked instead. Native browser zoom, OS reduced-motion toggling, physical-device Safari/VoiceOver, and deployed hosting/cache behavior remain release checks. No deployed-site or physical-device evidence is claimed. No backend, public API, signup service or analytics was added. Publishing remains a separate action.
+
+## Release marketing motion — October 12, 2026
+
+Added the approved marketing motion in the website repository only: an optional 8-second hero loop and two tracked vertical social exports. Removed the separate “Watch DineSense” video-player section after review; “Explore the app” now links directly to the guided walkthrough. The full product film is retained as a marketing asset without a landing-page player or link. All section labels use names only. App source remains unchanged.
+
+Desktop/mobile visual inspection and Chromium integration checks passed, including manual pause/resume, offscreen pause, reduced motion, data saver, no-JavaScript fallback, failed-media recovery, byte-range playback and 320/390/768px overflow checks. After removing the player, refreshed both website preview tabs and rechecked the walkthrough link, hero controls and absence of the demo section at desktop 1440px and mobile 390px, with no horizontal overflow. JavaScript syntax and Git whitespace checks passed again. Final exports use H.264 / yuv420p / BT.709 to match the approved stills. TypeScript and Remotion ESLint passed during integration. Detailed evidence is in [marketing/release-motion/VALIDATION.md](marketing/release-motion/VALIDATION.md).
+
+The delivery is a website PR. GitHub Pages publishes from `main`; no merge, production publication, social posting or App Store submission was performed.
