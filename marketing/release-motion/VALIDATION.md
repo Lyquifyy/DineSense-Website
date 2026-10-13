@@ -23,3 +23,9 @@ October 12, 2026. App source unchanged; website integration based on `aa4fe37`, 
 - GitHub Pages was confirmed to publish from `main` at `/`. This work is delivered for PR review; no merge, public website deployment, social posting or App Store submission was performed.
 
 Final website assets are tracked in `assets/video/`; social MP4s and posters in this folder's `exports/`. Ignored `out/web-ready/` holds regeneratable exports; ignored `review/` holds QA frames, screenshots and the integration-check script. Source provenance is in `SOURCES.md`. `run.ps1 website` serves the integrated website at localhost:3122; `run.ps1 serve` serves the authoring review at localhost:3121.
+
+## Distilled landing page — October 13, 2026
+
+The landing page now omits visible demo-data descriptors, repeated screenshot captions and playback controls. It uses only the first 4.5 seconds of the existing hero MP4, once, then holds the edited-order frame. The underlying eight-second MP4 and social exports are unchanged. The authoring review remains a separate internal page.
+
+Browser checks observed the hero paused at 4.50–4.51 seconds with no loop, media errors or restart after navigation. Six walkthrough stages and three FAQ answers remain. Keyboard navigation and FAQ expansion passed; no horizontal overflow at 320/390/768/1440px and no console errors were observed. Static syntax/format/whitespace checks passed. Reduced-motion, data-saver and failure paths were inspected in source, without an OS preference toggle or network-failure simulation in this pass. See the root VALIDATION.md for the full distill scope and ignored `review/distill-*.jpg` for screenshots.

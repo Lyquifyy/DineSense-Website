@@ -1,64 +1,82 @@
 "use strict";
 
-// The hero is a poster until motion is allowed and it enters the viewport.
-// User playback choices survive scrolling, preference changes and tab switches.
+// One brief reveal, then a still. No repeating motion or playback UI.
 const heroLoop = document.querySelector(".hero-loop");
-const motionToggle = document.querySelector(".motion-toggle");
-if (heroLoop && motionToggle && "IntersectionObserver" in window) {
+if (heroLoop && "IntersectionObserver" in window) {
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
   const connection = navigator.connection;
+  const revealSeconds = 4.5;
   let inView = false;
-  let userWantsPlay = null;
+  let completed = false;
   let blocked = false;
+  let stopTimer;
 
-  function updateControl() {
-    motionToggle.textContent = heroLoop.paused
-      ? "Play animation"
-      : "Pause animation";
+  function finishReveal() {
+    completed = true;
+    clearTimeout(stopTimer);
+    heroLoop.pause();
   }
 
   function syncPlayback() {
-    const automatic =
-      userWantsPlay === null && !reduceMotion.matches && !connection?.saveData;
+    clearTimeout(stopTimer);
     const shouldPlay =
       inView &&
       !document.hidden &&
-      (automatic || userWantsPlay === true) &&
+      !reduceMotion.matches &&
+      !connection?.saveData &&
+      !completed &&
       !blocked;
     if (!shouldPlay) {
       heroLoop.pause();
-      // Return to the still when a visitor turns reduced motion on.
       if (
-        reduceMotion.matches &&
-        userWantsPlay !== true &&
+        (reduceMotion.matches || connection?.saveData) &&
         heroLoop.hasAttribute("src")
       ) {
+        finishReveal();
         heroLoop.removeAttribute("src");
         heroLoop.load();
       }
-      updateControl();
       return;
     }
     if (!heroLoop.hasAttribute("src")) heroLoop.src = heroLoop.dataset.src;
-    heroLoop.play().catch((error) => {
-      if (error.name !== "AbortError") blocked = true;
-      updateControl();
-    });
+    heroLoop
+      .play()
+      .then(() => {
+        if (
+          !inView ||
+          document.hidden ||
+          reduceMotion.matches ||
+          connection?.saveData ||
+          completed ||
+          blocked
+        ) {
+          heroLoop.pause();
+          return;
+        }
+        clearTimeout(stopTimer);
+        stopTimer = setTimeout(
+          finishReveal,
+          Math.max(0, (revealSeconds - heroLoop.currentTime) * 1000),
+        );
+      })
+      .catch((error) => {
+        if (error.name !== "AbortError") {
+          blocked = true;
+          heroLoop.removeAttribute("src");
+          heroLoop.load();
+        }
+      });
   }
 
-  motionToggle.hidden = false;
-  motionToggle.addEventListener("click", () => {
-    userWantsPlay = heroLoop.paused;
-    blocked = false;
-    syncPlayback();
+  heroLoop.addEventListener("timeupdate", () => {
+    if (heroLoop.currentTime >= revealSeconds) finishReveal();
   });
-  heroLoop.addEventListener("play", updateControl);
-  heroLoop.addEventListener("pause", updateControl);
+  heroLoop.addEventListener("ended", finishReveal);
   heroLoop.addEventListener("error", () => {
     blocked = true;
+    clearTimeout(stopTimer);
     heroLoop.removeAttribute("src");
     heroLoop.load();
-    updateControl();
   });
   const observer = new IntersectionObserver(
     ([entry]) => {

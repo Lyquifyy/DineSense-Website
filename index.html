@@ -84,8 +84,8 @@
             <span class="hero-title-coda">before you get in line.</span>
           </h1>
           <p class="hero-description">
-            Your meal’s numbers. Or just the kind of meal you’re after. Find a
-            nearby dish, make it yours, and walk in knowing what to ask for.
+            Bring your meal’s numbers or choose a meal style. Find a nearby
+            dish, make it yours, and know what to ask for.
           </p>
           <div class="hero-actions">
             <a
@@ -110,7 +110,6 @@
             id="hero-loop"
             class="hero-loop"
             muted
-            loop
             playsinline
             preload="none"
             width="1000"
@@ -119,26 +118,9 @@
             poster="assets/video/dinesense-loop-poster.jpg"
             data-src="assets/video/dinesense-loop.mp4"
           ></video>
-          <div class="hero-media-footer">
-            <p class="preview-disclosure">Actual app screens · demo data</p>
-            <button
-              class="motion-toggle"
-              type="button"
-              aria-controls="hero-loop"
-              hidden
-            >
-              Play animation
-            </button>
-          </div>
         </div>
       </section>
-      <div class="opening-note shell">
-        <p>A meal you can actually order.</p>
-        <p>
-          From the first “what sounds good?”<br />to the last “no cheese,
-          please.”
-        </p>
-      </div>
+
       <section
         class="walkthrough shell"
         id="how-it-works"
@@ -156,14 +138,10 @@
                 <div class="story-copy">
                   <h2 data-anchor-focus>Start with your meal.</h2>
                   <p>
-                    You don’t need a set of numbers to know what sounds right.
                     Choose <strong>Lighter</strong>,
                     <strong>Regular meal</strong>, or
-                    <strong>More protein</strong>. DineSense finds nearby dishes
-                    for that kind of meal.
-                  </p>
-                  <p class="aside-note">
-                    The choice describes your meal. Never you.
+                    <strong>More protein</strong>. Find dishes for the meal you
+                    have in mind.
                   </p>
                 </div>
                 <figure class="scene">
@@ -182,27 +160,15 @@
                       decoding="async"
                     />
                   </div>
-                  <figcaption>
-                    A starting point, even without a target.
-                  </figcaption>
                 </figure>
               </div>
               <div class="story-stage" id="meal-target">
                 <div class="story-copy">
                   <h3 data-anchor-focus>Already have a target? Bring it.</h3>
                   <p>
-                    Set this meal’s calories and protein, add carbs and fat if
-                    you want, or describe it in words. Save a target you use
-                    often so next time starts with a tap.
+                    Set this meal’s calories and protein, with optional carbs
+                    and fat. Save a target to use again.
                   </p>
-                  <div class="example-target">
-                    <span>For example</span>
-                    <p>
-                      650 <small>cal</small>
-                      <span aria-hidden="true">/</span> 50
-                      <small>g protein</small>
-                    </p>
-                  </div>
                 </div>
                 <figure class="scene">
                   <div class="phone">
@@ -220,7 +186,6 @@
                       decoding="async"
                     />
                   </div>
-                  <figcaption>Your numbers, for this meal.</figcaption>
                 </figure>
               </div>
             </article>
@@ -229,13 +194,8 @@
                 <div class="story-copy">
                   <h2 data-anchor-focus>Find what fits nearby.</h2>
                   <p>
-                    See dishes across the places around you, ranked for your
-                    meal. Each result explains how it fits and what to ask for,
-                    including suggested changes when the menu’s figures support
-                    them.
-                  </p>
-                  <p class="aside-note">
-                    Published figures and estimates stay visibly different.
+                    Compare nearby dishes, see how they fit, and find the
+                    changes to ask for.
                   </p>
                 </div>
                 <figure class="scene">
@@ -254,41 +214,6 @@
                       decoding="async"
                     />
                   </div>
-                  <figcaption>From nearby menus to a short list.</figcaption>
-                </figure>
-              </div>
-              <div class="story-stage" id="nearby-map">
-                <div class="story-copy">
-                  <h3 data-anchor-focus>Or start with the place.</h3>
-                  <p>
-                    Explore nearby restaurants on the map, then see each place’s
-                    best dishes for your meal. Already have somewhere in mind?
-                    Look it up by name.
-                  </p>
-                  <p>
-                    Missing a menu? Find it online or photograph it in the app.
-                    Those dishes are marked as estimates.
-                  </p>
-                </div>
-                <figure class="scene">
-                  <div class="phone">
-                    <img
-                      src="assets/previews/nearby-880.webp"
-                      srcset="
-                        assets/previews/nearby-440.webp 440w,
-                        assets/previews/nearby-880.webp 880w
-                      "
-                      sizes="(max-width: 600px) 80vw, 330px"
-                      width="1320"
-                      height="2868"
-                      alt="Nearby shows a map and restaurants grouped by published nutrition, estimated menus, and menus not yet added."
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                  <figcaption>
-                    Your neighborhood, with the menu in view.
-                  </figcaption>
                 </figure>
               </div>
             </article>
@@ -296,15 +221,7 @@
               <div class="story-stage" id="adjust-order">
                 <div class="story-copy">
                   <h2 data-anchor-focus>Make the order yours.</h2>
-                  <p>
-                    Extra chicken? Leave something off? Open
-                    <strong>Change your order</strong> to adjust the parts the
-                    menu supports. The totals and fit update as you go.
-                  </p>
-                  <p class="aside-note">
-                    At build-your-own chains, “Build it for me” can find an
-                    everyday order for your target.
-                  </p>
+                  <p>Change supported ingredients and see the totals update.</p>
                 </div>
                 <figure class="scene">
                   <div class="phone">
@@ -322,24 +239,14 @@
                       decoding="async"
                     />
                   </div>
-                  <figcaption>See what a change changes.</figcaption>
                 </figure>
               </div>
               <div class="story-stage" id="exact-order">
                 <div class="story-copy">
                   <h3 data-anchor-focus>The exact words at the counter.</h3>
                   <p>
-                    Your ticket lists the whole order, including every addition
-                    and anything to leave out. Its totals already include your
-                    changes.
-                  </p>
-                  <blockquote>
-                    “Chicken burrito bowl. Extra chicken, white rice, black
-                    beans. No sour cream or cheese.”
-                  </blockquote>
-                  <p class="aside-note">
-                    The same demo order, from its first result to its final
-                    ticket.
+                    Every addition. Everything to leave out. Your whole order,
+                    ready to read at the counter.
                   </p>
                 </div>
                 <figure class="scene">
@@ -358,54 +265,16 @@
                       decoding="async"
                     />
                   </div>
-                  <figcaption>
-                    An order you can read straight from the screen.
-                  </figcaption>
                 </figure>
               </div>
             </article>
             <article class="chapter" id="handoff">
-              <div class="story-stage" id="pick-order">
-                <div class="story-copy">
-                  <h2 data-anchor-focus>Keep the good ones.</h2>
-                  <p>
-                    Tap <strong>I’ll have this</strong> to record your pick.
-                    Then copy its numbers into your tracker’s quick add. Save an
-                    order, with its changes, to come back to next time.
-                  </p>
-                  <p class="aside-note">
-                    DineSense helps you choose. Your tracker keeps the diary.
-                  </p>
-                </div>
-                <figure class="scene">
-                  <div class="phone">
-                    <img
-                      src="assets/previews/picked-880.webp"
-                      srcset="
-                        assets/previews/picked-440.webp 440w,
-                        assets/previews/picked-880.webp 880w
-                      "
-                      sizes="(max-width: 600px) 80vw, 330px"
-                      width="1320"
-                      height="2868"
-                      alt="The picked order has a Picked stamp and actions to copy its numbers and keep it on the Lock Screen."
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                  <figcaption>Pick it. Copy it. Order it again.</figcaption>
-                </figure>
-              </div>
               <div class="story-stage" id="lock-screen">
                 <div class="story-copy">
-                  <h3 data-anchor-focus>A glance away, while you wait.</h3>
+                  <h2 data-anchor-focus>A glance away, while you wait.</h2>
                   <p>
-                    Keep the order on your Lock Screen, ready when it’s your
-                    turn. Your dish, its numbers, and the words to order it—all
-                    without finding your place in the app again.
-                  </p>
-                  <p class="aside-note">
-                    Take it off the Lock Screen when you’re done.
+                    Keep your order on the Lock Screen, ready when it’s your
+                    turn. Copy its numbers into your tracker.
                   </p>
                 </div>
                 <figure class="scene">
@@ -419,156 +288,53 @@
                       sizes="(max-width: 600px) 80vw, 330px"
                       width="1320"
                       height="2868"
-                      alt="An actual iOS Lock Screen Live Activity shows the same edited chicken burrito bowl and its order instructions."
+                      alt="The Lock Screen shows the chicken burrito bowl and its order instructions."
                       loading="lazy"
                       decoding="async"
                     />
                   </div>
-                  <figcaption>Ready for “What can I get you?”</figcaption>
                 </figure>
               </div>
             </article>
           </div>
           <aside class="preview-column" aria-hidden="true">
             <div class="sticky-preview"></div>
-            <p>Actual app screens · demo data</p>
           </aside>
         </div>
-        <p class="walkthrough-disclosure">
-          Actual app screens · demo data. Example figures show how the app
-          works, not current restaurant nutrition.
-        </p>
       </section>
       <section class="sources-section" id="nutrition">
-        <div class="shell sources-inner">
-          <div class="sources-intro">
-            <h2>Good decisions start with knowing the source.</h2>
-            <p>
-              A published figure and an estimate shouldn’t look like the same
-              promise. In DineSense, they don’t.
-            </p>
-          </div>
-          <div class="source-stories">
-            <article>
-              <div class="source-crop">
-                <img
-                  src="assets/previews/published-source-880.webp"
-                  srcset="
-                    assets/previews/published-source-440.webp 440w,
-                    assets/previews/published-source-880.webp 880w
-                  "
-                  sizes="(max-width: 650px) calc(100vw - 40px), (max-width: 959px) calc((100vw - 96px) / 2), (max-width: 1352px) calc((100vw - 176px) / 2), 588px"
-                  width="1320"
-                  height="2868"
-                  alt="Expanded source details on the published demo order, including ingredient arithmetic and a source link."
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <h3>Published, with a source.</h3>
-              <p>
-                Where a restaurant publishes nutrition, you can inspect the
-                figures and their source. Supported ingredient changes use the
-                restaurant’s published numbers.
-              </p>
-            </article>
-            <article>
-              <div class="source-crop source-crop-estimate">
-                <img
-                  src="assets/previews/estimated-parts-880.webp"
-                  srcset="
-                    assets/previews/estimated-parts-440.webp 440w,
-                    assets/previews/estimated-parts-880.webp 880w
-                  "
-                  sizes="(max-width: 650px) calc(100vw - 40px), (max-width: 959px) calc((100vw - 96px) / 2), (max-width: 1352px) calc((100vw - 176px) / 2), 588px"
-                  width="1320"
-                  height="2868"
-                  alt="An estimated dish is broken into its plate components with approximate nutrition labels."
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <h3>Estimated, part by part.</h3>
-              <p>
-                Menus found online or photographed are estimated with their
-                sides, sauces, and portions. Approximate figures stay marked
-                with “~”, including after you change an order.
-              </p>
-            </article>
-          </div>
-          <p class="source-note">
-            Menus and portions vary. DineSense is a guide to the menu; ask the
-            restaurant about allergens and dietary requirements.
+        <div class="shell sources-intro">
+          <h2>Know the source.</h2>
+          <p>
+            Published nutrition links to its source. Estimates stay clearly
+            marked.
           </p>
         </div>
       </section>
       <section class="faq-section shell" id="questions">
         <div>
           <h2>A few things<br />before dinner.</h2>
-          <p>More to ask? <a href="support.html">We’re here to help.</a></p>
         </div>
         <div class="faq-list">
           <details>
-            <summary>Who is DineSense for?</summary>
+            <summary>What do I need?</summary>
             <p>
-              Anyone choosing a meal at a restaurant. Bring a meal target from a
-              tracker, or choose Lighter, Regular meal, or More protein without
-              setting numbers. Both lead to dishes and an exact order.
-            </p>
-          </details>
-          <details>
-            <summary>How do I try it?</summary>
-            <p>
-              DineSense is in a small, invite-only iPhone pilot through
-              TestFlight.
-              <a
-                href="mailto:dinesense.feedback@gmail.com?subject=DineSense%20pilot%20access&body=Hi%2C%20I%E2%80%99d%20like%20to%20try%20the%20DineSense%20iPhone%20pilot.%0A%0ACity%20%28optional%29%3A%0AiPhone%20/%20iOS%20version%20%28optional%29%3A%0A"
-                >Email us to request access</a
-              >. You can include your city and iPhone/iOS version; we’ll reply
-              about availability. An invitation isn’t guaranteed.
-            </p>
-          </details>
-          <details>
-            <summary>What do I need to use the app?</summary>
-            <p>
-              An iPhone running iOS 26 or later, a DineSense account, and
-              DineSense Pro. Subscription plans and any eligible trial are shown
-              in the app. During the pilot, follow the access instructions in
-              your invitation.
+              An iPhone with iOS 26+, a DineSense account, and DineSense Pro.
+              Plans are shown in the app.
             </p>
           </details>
           <details>
             <summary>Does it work with my food tracker?</summary>
             <p>
-              You can copy a picked meal’s calories and macros into your
-              tracker’s quick add. DineSense doesn’t automatically log meals in
-              another app, and it keeps no food diary.
-            </p>
-          </details>
-          <details>
-            <summary>Do I have to connect Apple Health?</summary>
-            <p>
-              No. With your permission and daily targets set, DineSense can read
-              what Apple Health says you’ve eaten today and suggest a target for
-              this meal. Health access is optional and read-only; DineSense
-              never writes meals to Health.
+              Copy a picked meal’s calories and macros into your tracker.
+              DineSense doesn’t log meals automatically or keep a food diary.
             </p>
           </details>
           <details>
             <summary>Will every restaurant have a menu?</summary>
             <p>
-              Coverage varies. Nearby separates published nutrition, estimated
-              menus, and places without a menu yet. You can ask the app to find
-              a menu online or photograph one. An estimate is always labeled.
-            </p>
-          </details>
-          <details>
-            <summary>How does DineSense use AI?</summary>
-            <p>
-              Some menu, search, and dish-question features use Anthropic’s
-              Claude. The app explains what is shared and asks for permission
-              before use. Read the <a href="privacy.html">privacy policy</a> for
-              details.
+              Coverage varies. Find a missing menu online or photograph it in
+              the app. Those dishes are marked as estimates.
             </p>
           </details>
         </div>
@@ -580,17 +346,8 @@
       >
         <div class="pilot-heading">
           <h2 id="pilot-title">Your next meal,<br />a little more decided.</h2>
-          <p>Help shape DineSense in the iPhone pilot.</p>
         </div>
         <div class="pilot-action">
-          <svg class="pilot-mark" viewBox="0 0 160 110" aria-hidden="true">
-            <path
-              d="M17 66C18 41 39 29 69 29C99 29 120 41 121 66M11 68H127C121 86 98 96 69 96C40 96 17 86 11 68ZM29 63H109"
-            />
-            <path
-              d="M132 7C132 24 126 31 112 34C126 37 132 44 132 61C135 44 141 37 155 34C141 31 135 24 132 7Z"
-            />
-          </svg>
           <a
             class="button"
             href="mailto:dinesense.feedback@gmail.com?subject=DineSense%20pilot%20access&body=Hi%2C%20I%E2%80%99d%20like%20to%20try%20the%20DineSense%20iPhone%20pilot.%0A%0ACity%20%28optional%29%3A%0AiPhone%20/%20iOS%20version%20%28optional%29%3A%0A"
@@ -598,10 +355,6 @@
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M5 12h14m-6-6 6 6-6 6" /></svg
           ></a>
-          <p>Opens an email. We’ll reply about availability.</p>
-          <a class="email-link" href="mailto:dinesense.feedback@gmail.com"
-            >dinesense.feedback@gmail.com</a
-          >
         </div>
       </section>
     </main>
@@ -615,7 +368,6 @@
             alt=""
           /><span>DineSense</span></a
         >
-        <p>For the meal in front of you.</p>
       </div>
       <nav aria-label="Footer">
         <a href="privacy.html">Privacy</a><a href="support.html">Support</a

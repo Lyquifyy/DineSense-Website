@@ -18,7 +18,7 @@ Product truth comes from the current DineSense SwiftUI implementation, PRODUCT.m
 
 ## Evidence
 
-Website previews use real screens captured from the current app in its deterministic demo mode, labeled as demo data. They demonstrate UI, not live menu coverage or deployed-backend acceptance. Capture provenance and refresh steps live in assets/SOURCES.md. Do not invent testimonials, adoption figures, endorsements, or nutrition accuracy guarantees.
+Website previews use real screens captured from the current app in its deterministic demo mode. They demonstrate UI, not live menu coverage or deployed-backend acceptance. Per the user's distill direction, the landing page omits demo-data descriptors and repetitive screenshot captions. Capture provenance and refresh steps remain in assets/SOURCES.md. Keep approximation marks within the screenshots intact. Do not invent testimonials, adoption figures, endorsements, or nutrition accuracy guarantees.
 
 ## Brand commitments
 

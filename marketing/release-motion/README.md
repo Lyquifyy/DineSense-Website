@@ -15,7 +15,7 @@ The reviewed files are tracked in the repository:
 
 Silent H.264 / yuv420p / BT.709, with matching JPEG posters. Section labels contain names only, without sequence numbers or slash prefixes.
 
-Run `./run.ps1 website`, then open http://localhost:3122 for the integrated website. The hero plays only while visible, with a pause control. Reduced motion, data saver, unavailable autoplay and no JavaScript retain a still. Explicit playback remains available. The hero leads directly into the existing guided walkthrough; there is no separate video-player section.
+Run `./run.ps1 website`, then open http://localhost:3122 for the integrated website. The hero uses the first 4.5 seconds of the existing eight-second asset, then settles on the edited order. It plays once, only while visible, with no playback controls. Reduced motion, data saver, unavailable autoplay and no JavaScript retain a still. The hero leads directly into a six-stage walkthrough; there is no separate video-player section or visible demo descriptor.
 
 Run `./run.ps1 serve`, then open http://localhost:3121 for the authoring film review after rendering. That page reads ignored `out/web-ready/` files. The website and tracked social handoff do not depend on that directory.
 
@@ -45,7 +45,7 @@ Compositions: `src/Root.tsx`. Screen-only loop: `src/HeroLoop.tsx`. Full demo sc
 
 ## Website delivery
 
-The website uses only the finished assets. Keep the existing meal walkthrough, pilot email actions, privacy/support pages and demo disclosures. `index.html` contains the hero and guided walkthrough; `script.js` controls optional motion; `styles.css` handles their responsive layout. The full product film is retained as an asset for marketing review, without a player or link on the landing page. No new analytics, backend or public app-download claim is introduced.
+The website uses only the finished assets. Keep the concise meal walkthrough, pilot email actions and privacy/support pages. Capture provenance stays in the repository; the landing page omits demo descriptors and repetitive captions per the user's distill direction. `index.html` contains the hero and guided walkthrough; `script.js` bounds the optional reveal; `styles.css` handles their responsive layout. The full product film is retained as an asset for marketing review, without a player or link on the landing page. No new analytics, backend or public app-download claim is introduced.
 
 GitHub Pages currently publishes `main` at the repository root. Deliver changes through the website PR; merging it updates the public site. Social files remain a handoff for native platform upload.
 

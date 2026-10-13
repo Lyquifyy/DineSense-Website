@@ -91,8 +91,7 @@ h1,
 h2,
 h3,
 p,
-figure,
-blockquote {
+figure {
   margin: 0;
 }
 h1,
@@ -357,32 +356,7 @@ strong {
   height: auto;
   aspect-ratio: 1000 / 1120;
 }
-.hero-media-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  min-height: 44px;
-}
-.motion-toggle {
-  flex-shrink: 0;
-  min-height: 44px;
-  padding: 10px 0 10px 10px;
-  border: 0;
-  background: transparent;
-  color: var(--text);
-  font: inherit;
-  font-size: 12px;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  cursor: pointer;
-}
-.motion-toggle:hover {
-  color: var(--sage);
-}
-.motion-toggle[hidden] {
-  display: none;
-}
+
 .phone {
   padding: 6px;
   border: 1px solid #54564d;
@@ -395,27 +369,7 @@ strong {
   width: 100%;
   border-radius: 32px;
 }
-.preview-disclosure {
-  color: var(--muted);
-  font-size: 11px;
-}
-.opening-note {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-block: 1px solid var(--line);
-  padding-block: 34px;
-  gap: 30px;
-}
-.opening-note p:first-child {
-  font: 400 28px/1.25 var(--serif);
-  letter-spacing: -0.02em;
-}
-.opening-note p:last-child {
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.5;
-}
+
 .walkthrough {
   padding-top: 60px;
   padding-bottom: 90px;
@@ -458,12 +412,7 @@ strong {
   color: var(--muted);
   max-width: 440px;
 }
-.story-copy .aside-note {
-  font-size: 14px;
-  margin-top: 25px;
-  padding-top: 20px;
-  border-top: 1px solid var(--line);
-}
+
 .chapter {
   scroll-margin-top: 120px;
   border-bottom: 1px solid var(--line);
@@ -476,58 +425,11 @@ strong {
   max-width: 330px;
   width: 100%;
 }
-.scene figcaption {
-  font-size: 12px;
-  line-height: 1.5;
-  text-align: center;
-  color: var(--muted);
-  margin: 22px -10px 0;
-}
-.example-target {
-  padding: 24px 0;
-  margin-top: 22px;
-  border-block: 1px solid var(--line);
-}
-.example-target > span {
-  font-size: 12px;
-  color: var(--muted);
-}
-.example-target p {
-  font-size: 34px;
-  color: var(--text);
-  line-height: 1;
-  margin-top: 12px;
-  font-variant-numeric: tabular-nums;
-}
-.example-target small {
-  font-size: 15px;
-  color: var(--muted);
-  font-weight: 400;
-}
-.example-target p > span {
-  font-weight: 300;
-  color: #686653;
-  margin-inline: 15px;
-}
-blockquote {
-  font: 400 25px/1.45 var(--serif);
-  color: var(--sage);
-  padding-block: 24px;
-  margin-top: 24px;
-  border-block: 1px solid var(--line);
-  max-width: 470px;
-}
+
 .preview-column {
   display: none;
 }
-.walkthrough-disclosure {
-  color: var(--muted);
-  font-size: 12px;
-  text-align: center;
-  max-width: none;
-  padding-top: 30px;
-  border-top: 1px solid var(--line);
-}
+
 .sources-section {
   background: #151b15;
   border-block: 1px solid #313b30;
@@ -546,57 +448,12 @@ blockquote {
   color: var(--muted);
   max-width: 370px;
 }
-.source-stories {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  margin-top: 60px;
-}
-.source-stories article {
-  min-width: 0;
-}
-.source-stories h3 {
-  font-size: 29px;
-  margin-top: 30px;
-}
-.source-stories p {
-  font-size: 15px;
-  color: var(--muted);
-  margin-top: 14px;
-  max-width: 430px;
-}
-.source-crop {
-  height: 300px;
-  overflow: hidden;
-  border-radius: 10px;
-  border: 1px solid #454c3d;
-  background: var(--bg);
-  position: relative;
-}
-.source-crop img {
-  width: 100%;
-  margin-top: -38%;
-}
-.source-crop-estimate img {
-  margin-top: -42%;
-}
-.source-note {
-  margin: 40px auto 0;
-  text-align: center;
-  font-size: 12px;
-  color: var(--muted);
-  max-width: 760px;
-}
+
 .faq-section {
   display: grid;
   grid-template-columns: 1fr 1.3fr;
   gap: 95px;
   padding-block: 115px;
-}
-.faq-section > div > p {
-  font-size: 14px;
-  color: var(--muted);
-  margin-top: 24px;
 }
 .faq-list {
   border-top: 1px solid var(--line);
@@ -650,23 +507,13 @@ details p a {
   line-height: 1.04;
   max-width: 14ch;
 }
-.pilot-heading p {
-  color: var(--raised);
-  margin-top: 21px;
-  font-size: 16px;
-}
+
 .pilot-action {
   width: 100%;
   max-width: 320px;
   justify-self: end;
 }
-.pilot-mark {
-  display: block;
-  width: 128px;
-  height: auto;
-  margin: 0 0 36px auto;
-  stroke-width: 1.5;
-}
+
 .pilot-action .button {
   width: 100%;
   background: var(--bg);
@@ -682,24 +529,7 @@ details p a {
 .pilot-section :focus-visible {
   outline-color: var(--bg);
 }
-.pilot-action p {
-  font-size: 12px;
-  color: var(--raised);
-  margin-top: 18px;
-}
-.email-link {
-  font-size: 13px;
-  color: var(--muted);
-  overflow-wrap: anywhere;
-  display: inline-block;
-  margin-top: 8px;
-}
-.pilot-section .email-link {
-  color: var(--raised);
-}
-.pilot-section .email-link:hover {
-  color: var(--bg);
-}
+
 .pilot-section ::selection {
   background: var(--bg);
   color: var(--text);
@@ -804,7 +634,7 @@ details p a {
     max-height: 850px;
   }
   .sticky-preview {
-    height: calc(100% - 28px);
+    height: 100%;
     position: relative;
   }
   .stage-preview {
@@ -828,7 +658,7 @@ details p a {
     visibility: visible;
   }
   .stage-preview .phone {
-    height: calc(100% - 45px);
+    height: 100%;
     max-height: 710px;
     width: auto;
     aspect-ratio: 1320/2868;
@@ -837,19 +667,6 @@ details p a {
     height: 100%;
     width: 100%;
     object-fit: cover;
-  }
-  .stage-preview figcaption {
-    color: var(--muted);
-    font-size: 12px;
-    line-height: 1.5;
-    text-align: center;
-    margin-top: 16px;
-  }
-  .preview-column > p {
-    font-size: 10px;
-    color: var(--muted);
-    text-align: center;
-    padding-top: 8px;
   }
 }
 @media (min-width: 960px) and (max-width: 1150px) {
@@ -921,12 +738,7 @@ details p a {
   .sources-intro {
     gap: 50px;
   }
-  .source-stories {
-    gap: 32px;
-  }
-  .source-crop {
-    height: 240px;
-  }
+
   .faq-section {
     gap: 45px;
   }
@@ -1020,27 +832,7 @@ details p a {
     width: min(100%, 390px);
     margin: auto;
   }
-  .preview-disclosure {
-    font-size: 10px;
-  }
-  .motion-toggle {
-    font-size: 11px;
-  }
-  .opening-note {
-    display: block;
-    padding-block: 28px;
-  }
-  .opening-note p:first-child {
-    font-size: 26px;
-    max-width: 12ch;
-  }
-  .opening-note p:last-child {
-    margin-top: 14px;
-    font-size: 13px;
-  }
-  .opening-note br {
-    display: none;
-  }
+
   .walkthrough {
     padding-top: 25px;
     padding-bottom: 50px;
@@ -1074,16 +866,11 @@ details p a {
     margin-top: 20px;
     font-size: 16px;
   }
-  .story-copy .aside-note {
-    font-size: 13px;
-  }
+
   .scene {
     max-width: 300px;
   }
-  .scene figcaption {
-    margin-inline: 0;
-    font-size: 11px;
-  }
+
   .phone {
     border-radius: 36px;
     padding: 5px;
@@ -1091,16 +878,7 @@ details p a {
   .phone img {
     border-radius: 30px;
   }
-  .example-target p {
-    font-size: 32px;
-  }
-  blockquote {
-    font-size: 24px;
-  }
-  .walkthrough-disclosure {
-    font-size: 11px;
-    text-align: left;
-  }
+
   .sources-section {
     padding-block: 60px;
   }
@@ -1115,34 +893,13 @@ details p a {
     margin-top: 25px;
     font-size: 16px;
   }
-  .source-stories {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    margin-top: 40px;
-  }
-  .source-crop {
-    height: 255px;
-  }
-  .source-stories h3 {
-    font-size: 30px;
-    margin-top: 22px;
-  }
-  .source-stories p {
-    font-size: 15px;
-  }
-  .source-note {
-    text-align: left;
-    font-size: 12px;
-  }
+
   .faq-section {
     display: block;
     padding-block: 65px;
   }
   .faq-section h2 {
     font-size: 42px;
-  }
-  .faq-section > div > p {
-    margin-top: 20px;
   }
   .faq-list {
     margin-top: 35px;
@@ -1162,17 +919,12 @@ details p a {
   .pilot-heading h2 {
     font-size: clamp(42px, 9vw, 58px);
   }
-  .pilot-heading p {
-    font-size: 15px;
-  }
+
   .pilot-action {
     margin-top: 36px;
     max-width: 350px;
   }
-  .pilot-mark {
-    width: 80px;
-    margin: 0 0 24px;
-  }
+
   .site-footer {
     display: grid;
     grid-template-columns: 1fr;
@@ -1223,9 +975,7 @@ details p a {
   .hero-actions {
     gap: 15px;
   }
-  .source-crop {
-    height: 215px;
-  }
+
   .story-copy h2,
   .sources-intro h2 {
     font-size: 38px;
@@ -1248,32 +998,12 @@ details p a {
     transition: none !important;
   }
 }
-/* Crops retain the source label and the actual component rows. */
-.source-crop img {
-  margin-top: -20%;
-}
-.source-crop-estimate img {
-  margin-top: -61%;
-}
+
 /* Keep the hero media inside its paint bounds. */
 .hero {
   overflow: clip;
 }
 
-/* Screenshot crops scale as a unit rather than cutting different rows on phones. */
-.source-crop {
-  height: auto;
-  aspect-ratio: 1.7;
-}
-.source-crop img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin-top: -28%;
-}
-.source-crop-estimate img {
-  margin-top: -69%;
-}
 @media (max-width: 650px) {
   .hero-actions {
     column-gap: 16px;
