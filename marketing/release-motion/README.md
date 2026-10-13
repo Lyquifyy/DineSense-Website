@@ -8,14 +8,14 @@ The reviewed files are tracked in the repository:
 
 | File | Use | Format | Length |
 | --- | --- | --- | --- |
-| `../../assets/video/dinesense-loop.mp4` | Screen-only website hero | 1000 × 1120 | 8 seconds |
+| `../../assets/video/dinesense-loop.mp4` | Original hero film, retained for marketing reuse | 1000 × 1120 | 8 seconds |
 | `../../assets/video/dinesense-demo.mp4` | Marketing film, not embedded on the website | 1600 × 900 | 22 seconds |
 | `exports/dinesense-numbers.mp4` | Macro-target social cut | 1080 × 1920 | 12 seconds |
 | `exports/dinesense-meal-styles.mp4` | Meal-style social cut | 1080 × 1920 | 10 seconds |
 
 Silent H.264 / yuv420p / BT.709, with matching JPEG posters. Section labels contain names only, without sequence numbers or slash prefixes.
 
-Run `./run.ps1 website`, then open http://localhost:3122 for the integrated website. The hero plays only while visible, with a pause control. Reduced motion, data saver, unavailable autoplay and no JavaScript retain a still. Explicit playback remains available. The hero leads directly into the existing guided walkthrough; there is no separate video-player section.
+Run `./run.ps1 website`, then open http://localhost:3122 for the integrated website. The current hero uses the existing WebP app captures directly: three phones fan over a green plate, the foreground resolves to the edited order, and the entrance settles within 1.8 seconds. Fine-pointer depth and the chapter transitions respond to visitor movement; the final invitation sweeps from cream to sage once. Reduced motion, data saver and no JavaScript retain complete static compositions. The website downloads no MP4 and has no player controls, separate video-player section or visible demo descriptor. The film exports below remain useful independently of this live composition.
 
 Run `./run.ps1 serve`, then open http://localhost:3121 for the authoring film review after rendering. That page reads ignored `out/web-ready/` files. The website and tracked social handoff do not depend on that directory.
 
@@ -45,7 +45,7 @@ Compositions: `src/Root.tsx`. Screen-only loop: `src/HeroLoop.tsx`. Full demo sc
 
 ## Website delivery
 
-The website uses only the finished assets. Keep the existing meal walkthrough, pilot email actions, privacy/support pages and demo disclosures. `index.html` contains the hero and guided walkthrough; `script.js` controls optional motion; `styles.css` handles their responsive layout. The full product film is retained as an asset for marketing review, without a player or link on the landing page. No new analytics, backend or public app-download claim is introduced.
+The website uses the existing WebP app captures with static HTML, CSS and JavaScript. Keep the concise meal walkthrough, pilot email actions and privacy/support pages. Capture provenance stays in the repository; the landing page omits demo descriptors and repetitive captions per the user's distill direction. `index.html` contains the hero and guided walkthrough; `script.js` gates motion by visibility and visitor preferences; `styles.css` handles choreography, color and responsive layout. Both MP4 films are retained for marketing review, without a player or link on the landing page. No new analytics, backend or public app-download claim is introduced.
 
 GitHub Pages currently publishes `main` at the repository root. Deliver changes through the website PR; merging it updates the public site. Social files remain a handoff for native platform upload.
 

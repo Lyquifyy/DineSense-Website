@@ -1,76 +1,107 @@
 "use strict";
 
-// The hero is a poster until motion is allowed and it enters the viewport.
-// User playback choices survive scrolling, preference changes and tab switches.
-const heroLoop = document.querySelector(".hero-loop");
-const motionToggle = document.querySelector(".motion-toggle");
-if (heroLoop && motionToggle && "IntersectionObserver" in window) {
+// The real screens fan onto a place setting once. Further depth follows the
+// visitor's pointer; there is no idle loop, video download, or playback UI.
+const hero = document.querySelector(".hero");
+if (hero && "IntersectionObserver" in window) {
+  const stage = hero.querySelector(".hero-stage");
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
+  const finePointer = matchMedia("(hover: hover) and (pointer: fine)");
   const connection = navigator.connection;
   let inView = false;
-  let userWantsPlay = null;
-  let blocked = false;
+  let introduced = false;
+  let pointerFrame = 0;
+  let tiltX = 0;
+  let tiltY = 0;
 
-  function updateControl() {
-    motionToggle.textContent = heroLoop.paused
-      ? "Play animation"
-      : "Pause animation";
+  function resetDepth() {
+    cancelAnimationFrame(pointerFrame);
+    pointerFrame = 0;
+    stage.style.removeProperty("--tilt-x");
+    stage.style.removeProperty("--tilt-y");
   }
 
-  function syncPlayback() {
-    const automatic =
-      userWantsPlay === null && !reduceMotion.matches && !connection?.saveData;
-    const shouldPlay =
-      inView &&
-      !document.hidden &&
-      (automatic || userWantsPlay === true) &&
-      !blocked;
-    if (!shouldPlay) {
-      heroLoop.pause();
-      // Return to the still when a visitor turns reduced motion on.
-      if (
-        reduceMotion.matches &&
-        userWantsPlay !== true &&
-        heroLoop.hasAttribute("src")
-      ) {
-        heroLoop.removeAttribute("src");
-        heroLoop.load();
-      }
-      updateControl();
-      return;
+  function syncMotion() {
+    const still = reduceMotion.matches || connection?.saveData;
+    const paused = !inView || document.hidden;
+    hero.classList.toggle("is-motion-paused", paused);
+    if (still) hero.classList.remove("is-arriving");
+    else if (!paused && !introduced) {
+      introduced = true;
+      hero.classList.add("is-arriving");
     }
-    if (!heroLoop.hasAttribute("src")) heroLoop.src = heroLoop.dataset.src;
-    heroLoop.play().catch((error) => {
-      if (error.name !== "AbortError") blocked = true;
-      updateControl();
-    });
+    if (still || paused || !finePointer.matches) resetDepth();
   }
 
-  motionToggle.hidden = false;
-  motionToggle.addEventListener("click", () => {
-    userWantsPlay = heroLoop.paused;
-    blocked = false;
-    syncPlayback();
+  stage.addEventListener("pointermove", (event) => {
+    if (
+      !inView ||
+      document.hidden ||
+      reduceMotion.matches ||
+      connection?.saveData ||
+      !finePointer.matches
+    )
+      return;
+    const bounds = stage.getBoundingClientRect();
+    const x = Math.max(
+      -0.5,
+      Math.min(0.5, (event.clientX - bounds.left) / bounds.width - 0.5),
+    );
+    const y = Math.max(
+      -0.5,
+      Math.min(0.5, (event.clientY - bounds.top) / bounds.height - 0.5),
+    );
+    tiltX = -y * 10;
+    tiltY = x * 12;
+    if (pointerFrame) return;
+    pointerFrame = requestAnimationFrame(() => {
+      stage.style.setProperty("--tilt-x", `${tiltX.toFixed(2)}deg`);
+      stage.style.setProperty("--tilt-y", `${tiltY.toFixed(2)}deg`);
+      pointerFrame = 0;
+    });
   });
-  heroLoop.addEventListener("play", updateControl);
-  heroLoop.addEventListener("pause", updateControl);
-  heroLoop.addEventListener("error", () => {
-    blocked = true;
-    heroLoop.removeAttribute("src");
-    heroLoop.load();
-    updateControl();
-  });
+  stage.addEventListener("pointerleave", resetDepth);
   const observer = new IntersectionObserver(
     ([entry]) => {
-      inView = entry.isIntersecting;
-      syncPlayback();
+      inView = entry.isIntersecting && entry.intersectionRatio >= 0.08;
+      syncMotion();
     },
-    { threshold: 0 },
+    { threshold: 0.08 },
   );
-  observer.observe(heroLoop);
-  reduceMotion.addEventListener("change", syncPlayback);
-  connection?.addEventListener("change", syncPlayback);
-  document.addEventListener("visibilitychange", syncPlayback);
+  observer.observe(stage);
+  reduceMotion.addEventListener("change", syncMotion);
+  finePointer.addEventListener("change", syncMotion);
+  connection?.addEventListener("change", syncMotion);
+  document.addEventListener("visibilitychange", syncMotion);
+}
+
+// A single cream-to-sage sweep puts the final invitation in the action color.
+const invitation = document.querySelector(".pilot-section");
+if (invitation && "IntersectionObserver" in window) {
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
+  const connection = navigator.connection;
+  let introduced = false;
+  let inView = false;
+  function syncInvitation() {
+    const still = reduceMotion.matches || connection?.saveData;
+    if (still) invitation.classList.remove("is-arriving");
+    else if (inView && !document.hidden && !introduced) {
+      introduced = true;
+      invitation.classList.add("is-arriving");
+    }
+    invitation.classList.toggle("is-motion-paused", !inView || document.hidden);
+  }
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      inView = entry.isIntersecting && entry.intersectionRatio >= 0.25;
+      syncInvitation();
+    },
+    { threshold: 0.25 },
+  );
+  observer.observe(invitation);
+  reduceMotion.addEventListener("change", syncInvitation);
+  connection?.addEventListener("change", syncInvitation);
+  document.addEventListener("visibilitychange", syncInvitation);
 }
 
 // Native anchor navigation, with a useful keyboard destination.
@@ -100,8 +131,10 @@ if (walkthrough && "IntersectionObserver" in window) {
   const screens = [...walkthrough.querySelectorAll(".scene")];
   const frame = walkthrough.querySelector(".sticky-preview");
   const chapterLinks = [...walkthrough.querySelectorAll(".chapter-nav a")];
+  const layout = walkthrough.querySelector(".story-layout");
   const roomy = matchMedia("(min-width: 960px) and (min-height: 740px)");
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
+  const connection = navigator.connection;
   let observer;
   let activeId;
   let pendingFrame = false;
@@ -126,13 +159,17 @@ if (walkthrough && "IntersectionObserver" in window) {
   function selectStage(stage) {
     if (!stage || activeId === stage.id) return;
     activeId = stage.id;
-    previews.forEach((preview) =>
+    const index = stages.indexOf(stage);
+    previews.forEach((preview, previewIndex) => {
       preview.classList.toggle(
         "is-active",
         preview.dataset.preview === activeId,
-      ),
-    );
+      );
+      preview.classList.toggle("is-past", previewIndex < index);
+    });
     const chapter = stage.closest(".chapter").id;
+    walkthrough.dataset.chapter = chapter;
+    walkthrough.style.setProperty("--plate-turn", `${index * 62 - 25}deg`);
     chapterLinks.forEach((link) => {
       if (link.hash === `#${chapter}`)
         link.setAttribute("aria-current", "step");
@@ -142,8 +179,17 @@ if (walkthrough && "IntersectionObserver" in window) {
 
   function updateStage() {
     pendingFrame = false;
-    if (!walkthrough.classList.contains("is-enhanced")) return;
+    if (!walkthrough.classList.contains("is-enhanced") || document.hidden)
+      return;
+    const layoutBounds = layout.getBoundingClientRect();
+    if (layoutBounds.bottom < 0 || layoutBounds.top > window.innerHeight)
+      return;
     const line = window.innerHeight * 0.5;
+    const progress = Math.max(
+      0,
+      Math.min(1, (line - layoutBounds.top) / layoutBounds.height),
+    );
+    walkthrough.style.setProperty("--journey-progress", progress.toFixed(4));
     const current = stages.find((stage) => {
       const bounds = stage.getBoundingClientRect();
       return bounds.top <= line && bounds.bottom > line;
@@ -171,10 +217,13 @@ if (walkthrough && "IntersectionObserver" in window) {
 
   function configure() {
     observer?.disconnect();
-    const enhanced = roomy.matches && !reduceMotion.matches;
+    const enhanced =
+      roomy.matches && !reduceMotion.matches && !connection?.saveData;
     walkthrough.classList.toggle("is-enhanced", enhanced);
     if (!enhanced) {
       chapterLinks.forEach((link) => link.removeAttribute("aria-current"));
+      delete walkthrough.dataset.chapter;
+      walkthrough.style.removeProperty("--journey-progress");
       activeId = null;
       return;
     }
@@ -187,7 +236,10 @@ if (walkthrough && "IntersectionObserver" in window) {
   }
   roomy.addEventListener("change", configure);
   reduceMotion.addEventListener("change", configure);
+  connection?.addEventListener("change", configure);
+  window.addEventListener("scroll", scheduleUpdate, { passive: true });
   window.addEventListener("resize", scheduleUpdate, { passive: true });
   window.addEventListener("hashchange", scheduleUpdate);
+  document.addEventListener("visibilitychange", scheduleUpdate);
   configure();
 }
