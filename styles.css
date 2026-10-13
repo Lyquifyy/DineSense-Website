@@ -199,6 +199,70 @@ strong {
   position: relative;
   z-index: 3;
 }
+.hero h1 {
+  max-width: none;
+  font-size: clamp(64px, 7.1vw, 96px);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  text-wrap: initial;
+}
+.hero-title-main {
+  display: block;
+}
+.order-word {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.38em;
+  color: var(--sage);
+  white-space: nowrap;
+}
+.order-flourish {
+  position: absolute;
+  left: -2%;
+  bottom: -0.06em;
+  width: 108%;
+  height: auto;
+  color: var(--brass);
+  stroke-width: 1.5;
+  overflow: visible;
+}
+.order-flourish path {
+  vector-effect: non-scaling-stroke;
+}
+.hero-title-coda {
+  display: block;
+  max-width: 17ch;
+  margin-top: 20px;
+  font-size: clamp(28px, 2.9vw, 40px);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .plate-line {
+    stroke-dasharray: 1;
+    animation: set-the-plate 700ms var(--ease) both;
+  }
+  .plate-spark {
+    animation: finish-the-plate 500ms var(--ease) both;
+  }
+}
+@keyframes set-the-plate {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes finish-the-plate {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .hero-description {
   font-size: 18px;
   line-height: 1.7;
@@ -242,8 +306,30 @@ strong {
   border-bottom: 1px solid #827b6c;
   padding-block: 8px;
 }
-.text-link span {
-  padding-left: 9px;
+.hero .text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero .text-link svg {
+  width: 16px;
+  height: 16px;
+}
+.hero .button svg,
+.pilot-section .button svg,
+.hero .text-link svg {
+  transition: transform 180ms var(--ease);
+}
+.hero .button:is(:hover, :focus-visible) svg,
+.pilot-section .button:is(:hover, :focus-visible) svg {
+  transform: translateX(4px);
+}
+.hero .text-link:is(:hover, :focus-visible) svg {
+  transform: translateY(3px);
+}
+.hero .button:active,
+.pilot-section .button:active {
+  background: var(--text);
 }
 .availability {
   display: flex;
@@ -550,30 +636,55 @@ details p a {
   color: var(--text);
 }
 .pilot-section {
-  padding: 58px 0 75px;
-  border-top: 1px solid var(--line);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 50px;
+  padding: 64px 56px;
+  margin-block: 16px 72px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  align-items: end;
+  gap: 64px;
+  background: var(--text);
+  color: var(--bg);
 }
 .pilot-heading h2 {
-  font-size: clamp(38px, 4.3vw, 60px);
+  font-size: clamp(44px, 5.4vw, 76px);
+  line-height: 1.04;
+  max-width: 14ch;
 }
 .pilot-heading p {
-  color: var(--muted);
+  color: var(--raised);
   margin-top: 21px;
   font-size: 16px;
 }
 .pilot-action {
-  max-width: 350px;
+  width: 100%;
+  max-width: 320px;
+  justify-self: end;
+}
+.pilot-mark {
+  display: block;
+  width: 128px;
+  height: auto;
+  margin: 0 0 36px auto;
+  stroke-width: 1.5;
 }
 .pilot-action .button {
   width: 100%;
+  background: var(--bg);
+  border-color: var(--bg);
+  color: var(--text);
+}
+.pilot-action .button:is(:hover, :focus-visible) {
+  background: var(--green);
+}
+.pilot-section .button:active {
+  background: var(--raised);
+}
+.pilot-section :focus-visible {
+  outline-color: var(--bg);
 }
 .pilot-action p {
   font-size: 12px;
-  color: var(--muted);
+  color: var(--raised);
   margin-top: 18px;
 }
 .email-link {
@@ -582,6 +693,16 @@ details p a {
   overflow-wrap: anywhere;
   display: inline-block;
   margin-top: 8px;
+}
+.pilot-section .email-link {
+  color: var(--raised);
+}
+.pilot-section .email-link:hover {
+  color: var(--bg);
+}
+.pilot-section ::selection {
+  background: var(--bg);
+  color: var(--text);
 }
 .site-footer {
   display: flex;
@@ -771,7 +892,7 @@ details p a {
     gap: 10px;
   }
   .hero h1 {
-    font-size: clamp(47px, 6.6vw, 65px);
+    font-size: clamp(52px, 7.5vw, 72px);
   }
   .hero-description {
     font-size: 16px;
@@ -823,6 +944,13 @@ details p a {
     gap: 8px;
     font-size: 12px;
   }
+  .pilot-section {
+    padding: 44px 32px;
+    gap: 32px;
+  }
+  .pilot-heading h2 {
+    font-size: clamp(40px, 5.4vw, 52px);
+  }
 }
 @media (max-width: 650px) {
   .shell {
@@ -864,8 +992,12 @@ details p a {
     min-height: 0;
   }
   .hero h1 {
-    font-size: clamp(46px, 11.4vw, 68px);
-    max-width: 11ch;
+    font-size: clamp(60px, 15.5vw, 88px);
+    max-width: none;
+  }
+  .hero-title-coda {
+    font-size: clamp(28px, 7.2vw, 36px);
+    margin-top: 18px;
   }
   .hero-description {
     font-size: 16px;
@@ -1024,17 +1156,22 @@ details p a {
   }
   .pilot-section {
     display: block;
-    padding-block: 45px 55px;
+    padding: 36px 24px;
+    margin-bottom: 48px;
   }
   .pilot-heading h2 {
-    font-size: 42px;
+    font-size: clamp(42px, 9vw, 58px);
   }
   .pilot-heading p {
     font-size: 15px;
   }
   .pilot-action {
-    margin-top: 28px;
+    margin-top: 36px;
     max-width: 350px;
+  }
+  .pilot-mark {
+    width: 80px;
+    margin: 0 0 24px;
   }
   .site-footer {
     display: grid;
@@ -1081,7 +1218,7 @@ details p a {
     width: 13px;
   }
   .hero h1 {
-    font-size: 46px;
+    font-size: 56px;
   }
   .hero-actions {
     gap: 15px;
@@ -1090,9 +1227,14 @@ details p a {
     height: 215px;
   }
   .story-copy h2,
-  .sources-intro h2,
-  .pilot-heading h2 {
+  .sources-intro h2 {
     font-size: 38px;
+  }
+  .pilot-section {
+    padding-inline: 20px;
+  }
+  .pilot-heading h2 {
+    font-size: 40px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
