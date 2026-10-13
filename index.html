@@ -28,7 +28,9 @@
     <link
       rel="preload"
       as="image"
-      href="assets/video/dinesense-loop-poster.jpg"
+      href="assets/previews/edited-order-880.webp"
+      imagesrcset="assets/previews/edited-order-440.webp 440w, assets/previews/edited-order-880.webp 880w"
+      imagesizes="(max-width: 650px) 44vw, 270px"
     />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
@@ -105,19 +107,68 @@
             iPhone pilot · iOS 26+
           </p>
         </div>
-        <div class="hero-stage">
-          <video
-            id="hero-loop"
-            class="hero-loop"
-            muted
-            playsinline
-            preload="none"
-            width="1000"
-            height="1120"
-            aria-hidden="true"
-            poster="assets/video/dinesense-loop-poster.jpg"
-            data-src="assets/video/dinesense-loop.mp4"
-          ></video>
+        <div class="hero-stage" aria-hidden="true">
+          <div class="hero-depth">
+            <div class="hero-plate"></div>
+            <svg class="hero-orbit" viewBox="0 0 600 680">
+              <path
+                class="orbit-trail"
+                pathLength="1"
+                d="M568 232C603 325 551 527 386 590C237 647 74 604 33 509C-9 412 68 214 233 146C362 93 493 117 543 181"
+              />
+              <path
+                class="orbit-spark"
+                d="M550 163C550 183 544 189 525 192C544 195 550 201 550 221C553 201 559 195 578 192C559 189 553 183 550 163Z"
+              />
+            </svg>
+            <div class="hero-phone hero-phone-target">
+              <div class="phone">
+                <img
+                  src="assets/previews/target-440.webp"
+                  width="1320"
+                  height="2868"
+                  alt=""
+                  decoding="async"
+                />
+              </div>
+            </div>
+            <div class="hero-phone hero-phone-style">
+              <div class="phone">
+                <img
+                  src="assets/previews/simple-440.webp"
+                  width="1320"
+                  height="2868"
+                  alt=""
+                  decoding="async"
+                />
+              </div>
+            </div>
+            <div class="hero-phone hero-phone-order">
+              <div class="phone">
+                <img
+                  src="assets/previews/edited-order-880.webp"
+                  srcset="
+                    assets/previews/edited-order-440.webp 440w,
+                    assets/previews/edited-order-880.webp 880w
+                  "
+                  sizes="(max-width: 650px) 44vw, 270px"
+                  width="1320"
+                  height="2868"
+                  alt=""
+                  fetchpriority="high"
+                  decoding="async"
+                />
+                <img
+                  class="hero-first-screen"
+                  src="assets/previews/results-440.webp"
+                  width="1320"
+                  height="2868"
+                  alt=""
+                  decoding="async"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -136,7 +187,9 @@
             <article class="chapter" id="your-meal">
               <div class="story-stage" id="meal-style">
                 <div class="story-copy">
-                  <h2 data-anchor-focus>Start with your meal.</h2>
+                  <h2 data-anchor-focus>
+                    Start with <span class="chapter-emphasis">your meal.</span>
+                  </h2>
                   <p>
                     Choose <strong>Lighter</strong>,
                     <strong>Regular meal</strong>, or
@@ -192,7 +245,9 @@
             <article class="chapter" id="nearby">
               <div class="story-stage" id="find-results">
                 <div class="story-copy">
-                  <h2 data-anchor-focus>Find what fits nearby.</h2>
+                  <h2 data-anchor-focus>
+                    Find <span class="chapter-emphasis">what fits</span> nearby.
+                  </h2>
                   <p>
                     Compare nearby dishes, see how they fit, and find the
                     changes to ask for.
@@ -220,7 +275,9 @@
             <article class="chapter" id="your-order">
               <div class="story-stage" id="adjust-order">
                 <div class="story-copy">
-                  <h2 data-anchor-focus>Make the order yours.</h2>
+                  <h2 data-anchor-focus>
+                    Make the order <span class="chapter-emphasis">yours.</span>
+                  </h2>
                   <p>Change supported ingredients and see the totals update.</p>
                 </div>
                 <figure class="scene">
@@ -271,7 +328,10 @@
             <article class="chapter" id="handoff">
               <div class="story-stage" id="lock-screen">
                 <div class="story-copy">
-                  <h2 data-anchor-focus>A glance away, while you wait.</h2>
+                  <h2 data-anchor-focus>
+                    <span class="chapter-emphasis">A glance away,</span> while
+                    you wait.
+                  </h2>
                   <p>
                     Keep your order on the Lock Screen, ready when it’s your
                     turn. Copy its numbers into your tracker.
@@ -298,6 +358,21 @@
             </article>
           </div>
           <aside class="preview-column" aria-hidden="true">
+            <div class="journey-plate">
+              <svg viewBox="0 0 500 500">
+                <circle
+                  class="journey-orbit"
+                  cx="250"
+                  cy="250"
+                  r="231"
+                  pathLength="1"
+                />
+                <path
+                  class="journey-spark"
+                  d="M250 0C250 13 246 17 234 19C246 21 250 25 250 38C252 25 256 21 268 19C256 17 252 13 250 0Z"
+                />
+              </svg>
+            </div>
             <div class="sticky-preview"></div>
           </aside>
         </div>

@@ -22,6 +22,11 @@
   --line: #39372f;
   --sage: #9ccfae;
   --green: #111c16;
+  --forest: #203d2c;
+  --forest-edge: #49684f;
+  --on-forest: #c6d4c6;
+  --olive: #343b25;
+  --olive-edge: #797a4c;
   --brass: #c9a45c;
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --serif: Fraunces, Georgia, serif;
@@ -189,7 +194,7 @@ strong {
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 12px;
   align-items: center;
   padding-block: 68px 64px;
   min-height: 790px;
@@ -238,11 +243,11 @@ strong {
   text-wrap: balance;
 }
 @media (prefers-reduced-motion: no-preference) {
-  .plate-line {
+  .is-arriving .plate-line {
     stroke-dasharray: 1;
     animation: set-the-plate 700ms var(--ease) both;
   }
-  .plate-spark {
+  .is-arriving .plate-spark {
     animation: finish-the-plate 500ms var(--ease) both;
   }
 }
@@ -349,12 +354,173 @@ strong {
   aspect-ratio: 1000 / 1120;
   position: relative;
   width: 100%;
+  isolation: isolate;
 }
-.hero-loop {
-  display: block;
+.hero-depth {
+  position: absolute;
+  inset: 0;
+  transform: perspective(1100px) rotateX(var(--tilt-x, 0deg))
+    rotateY(var(--tilt-y, 0deg));
+  transition: transform 500ms var(--ease);
+}
+.hero-plate {
+  position: absolute;
+  top: 15%;
+  left: 5%;
+  width: 91%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid var(--forest-edge);
+  background: var(--forest);
+  box-shadow: 0 32px 65px #0005;
+  transform: rotate(-18deg) scaleY(0.9);
+}
+.hero-plate::before,
+.hero-plate::after {
+  content: "";
+  position: absolute;
+  inset: 3%;
+  border: 1px solid var(--forest-edge);
+  border-radius: inherit;
+}
+.hero-plate::after {
+  inset: 14%;
+}
+.hero-orbit {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
-  aspect-ratio: 1000 / 1120;
+  height: 100%;
+  overflow: visible;
+  color: var(--brass);
+  stroke-width: 1.2;
+}
+.orbit-spark {
+  fill: var(--brass);
+  stroke: none;
+}
+.hero-phone {
+  --phone-radius: clamp(18px, 2.7vw, 33px);
+  position: absolute;
+  transform-origin: 50% 80%;
+}
+.hero-phone .phone {
+  position: relative;
+  border-radius: var(--phone-radius);
+  box-shadow: 0 24px 38px #0007;
+}
+.hero-phone .phone img {
+  border-radius: calc(var(--phone-radius) - 6px);
+}
+.hero-phone-target {
+  left: 10%;
+  top: 17%;
+  width: 36%;
+  transform: rotate(-14deg);
+}
+.hero-phone-style {
+  left: 59%;
+  top: 7%;
+  width: 32%;
+  transform: rotate(12deg);
+}
+.hero-phone-order {
+  left: 37%;
+  top: 11%;
+  width: 44%;
+  transform: rotate(5deg);
+}
+.hero-phone-order .phone {
+  border-color: var(--sage);
+}
+.hero-phone .hero-first-screen {
+  position: absolute;
+  inset: 6px;
+  width: calc(100% - 12px);
+  height: calc(100% - 12px);
+  opacity: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .is-arriving .hero-plate {
+    animation: place-the-plate 1500ms var(--ease) both;
+  }
+  .is-arriving .orbit-trail {
+    stroke-dasharray: 1;
+    animation: set-the-plate 1600ms 150ms var(--ease) both;
+  }
+  .is-arriving .orbit-spark {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: spark-arrival 700ms 900ms var(--ease) both;
+  }
+  .is-arriving .hero-phone-target {
+    animation: fan-target 1200ms 100ms var(--ease) both;
+  }
+  .is-arriving .hero-phone-style {
+    animation: fan-style 1300ms 180ms var(--ease) both;
+  }
+  .is-arriving .hero-phone-order {
+    animation: serve-the-order 1400ms 260ms var(--ease) both;
+  }
+  .is-arriving .hero-first-screen {
+    animation: resolve-the-order 1800ms ease-out both;
+  }
+  .hero.is-motion-paused *,
+  .hero.is-motion-paused *::before,
+  .hero.is-motion-paused *::after {
+    animation-play-state: paused !important;
+  }
+}
+@keyframes place-the-plate {
+  from {
+    transform: rotate(-80deg) scale(0.6, 0.25);
+  }
+  to {
+    transform: rotate(-18deg) scaleY(0.9);
+  }
+}
+@keyframes spark-arrival {
+  from {
+    transform: rotate(-100deg) scale(0.2);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(0) scale(1);
+    opacity: 1;
+  }
+}
+@keyframes fan-target {
+  from {
+    transform: translate(55%, 16%) rotate(24deg) scale(0.8);
+  }
+  to {
+    transform: rotate(-14deg);
+  }
+}
+@keyframes fan-style {
+  from {
+    transform: translate(-55%, 35%) rotate(-26deg) scale(0.8);
+  }
+  to {
+    transform: rotate(12deg);
+  }
+}
+@keyframes serve-the-order {
+  from {
+    transform: translate(-16%, 16%) rotate(-22deg) scale(0.88);
+  }
+  to {
+    transform: rotate(5deg);
+  }
+}
+@keyframes resolve-the-order {
+  0%,
+  62% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 .phone {
@@ -371,10 +537,14 @@ strong {
 }
 
 .walkthrough {
+  --chapter-accent: var(--sage);
+  --chapter-field: var(--forest);
+  --chapter-edge: var(--forest-edge);
   padding-top: 60px;
   padding-bottom: 90px;
 }
 .chapter-nav {
+  position: relative;
   display: flex;
   justify-content: space-between;
   gap: 18px;
@@ -382,6 +552,16 @@ strong {
   border-bottom: 1px solid var(--line);
   background: var(--bg);
   z-index: 6;
+}
+.chapter-nav::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 -1px;
+  height: 2px;
+  background: var(--chapter-accent);
+  transform: scaleX(var(--journey-progress, 0));
+  transform-origin: left;
+  transition: background 400ms;
 }
 .chapter-nav a {
   display: flex;
@@ -394,10 +574,32 @@ strong {
 }
 .chapter-nav a:hover,
 .chapter-nav a[aria-current] {
-  color: var(--sage);
+  color: var(--chapter-accent);
 }
 .chapter-nav a[aria-current] {
-  box-shadow: 0 2px 0 var(--sage);
+  box-shadow: 0 2px 0 var(--chapter-accent);
+}
+.chapter {
+  --stage-accent: var(--sage);
+  --stage-field: var(--forest);
+}
+#nearby {
+  --stage-accent: var(--brass);
+  --stage-field: var(--olive);
+}
+#handoff {
+  --stage-accent: var(--text);
+}
+.chapter-emphasis {
+  color: var(--stage-accent);
+}
+.walkthrough[data-chapter="nearby"] {
+  --chapter-accent: var(--brass);
+  --chapter-field: var(--olive);
+  --chapter-edge: var(--olive-edge);
+}
+.walkthrough[data-chapter="handoff"] {
+  --chapter-accent: var(--text);
 }
 .story-stage {
   display: grid;
@@ -421,9 +623,23 @@ strong {
   border-bottom: 0;
 }
 .scene {
+  position: relative;
+  isolation: isolate;
   margin-inline: auto;
   max-width: 330px;
   width: 100%;
+}
+.scene::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 120%;
+  aspect-ratio: 1;
+  top: 25%;
+  left: -10%;
+  border-radius: 50%;
+  background: var(--stage-field);
+  border: 1px solid var(--stage-accent);
 }
 
 .preview-column {
@@ -431,8 +647,8 @@ strong {
 }
 
 .sources-section {
-  background: #151b15;
-  border-block: 1px solid #313b30;
+  background: var(--forest);
+  border-block: 1px solid var(--forest-edge);
   padding-block: 105px;
 }
 .sources-intro {
@@ -445,7 +661,7 @@ strong {
   max-width: 540px;
 }
 .sources-intro p {
-  color: var(--muted);
+  color: var(--on-forest);
   max-width: 370px;
 }
 
@@ -493,14 +709,41 @@ details p a {
   color: var(--text);
 }
 .pilot-section {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
   padding: 64px 56px;
   margin-block: 16px 72px;
   display: grid;
   grid-template-columns: 1.4fr 1fr;
   align-items: end;
   gap: 64px;
-  background: var(--text);
+  background: var(--sage);
   color: var(--bg);
+}
+.pilot-section::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: var(--text);
+  clip-path: circle(0 at 100% 100%);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .pilot-section.is-arriving::before {
+    animation: invitation-sweep 1100ms var(--ease) both;
+  }
+  .pilot-section.is-motion-paused::before {
+    animation-play-state: paused;
+  }
+}
+@keyframes invitation-sweep {
+  from {
+    clip-path: circle(150% at 100% 100%);
+  }
+  to {
+    clip-path: circle(0 at 100% 100%);
+  }
 }
 .pilot-heading h2 {
   font-size: clamp(44px, 5.4vw, 76px);
@@ -632,25 +875,69 @@ details p a {
     top: 115px;
     height: calc(100vh - 145px);
     max-height: 850px;
+    overflow: clip;
+    overflow-clip-margin: 32px;
   }
   .sticky-preview {
     height: 100%;
     position: relative;
+    perspective: 1000px;
+  }
+  .journey-plate {
+    position: absolute;
+    width: 112%;
+    aspect-ratio: 1;
+    left: -6%;
+    top: 50%;
+    border: 1px solid var(--chapter-edge);
+    border-radius: 50%;
+    background: var(--chapter-field);
+    transform: translateY(-50%) rotate(var(--plate-turn, -25deg)) scaleY(0.9);
+    transition:
+      transform 800ms var(--ease),
+      background 500ms,
+      border-color 500ms;
+  }
+  .journey-plate::after {
+    content: "";
+    position: absolute;
+    inset: 12%;
+    border: 1px solid var(--chapter-edge);
+    border-radius: inherit;
+  }
+  .journey-plate svg {
+    position: absolute;
+    inset: -6%;
+    width: 112%;
+    height: 112%;
+    color: var(--chapter-accent);
+    overflow: visible;
+    transition: color 400ms;
+  }
+  .journey-orbit {
+    stroke-dasharray: 0.82 0.18;
+  }
+  .journey-spark {
+    fill: currentColor;
+    stroke: none;
   }
   .stage-preview {
     position: absolute;
     inset: 0;
     opacity: 0;
-    transform: translateY(12px) scale(0.98);
+    transform: translate(64px, 24px) rotateY(-12deg) rotate(7deg) scale(0.94);
     transition:
       opacity 0.4s var(--ease),
-      transform 0.55s var(--ease);
+      transform 0.7s var(--ease);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     pointer-events: none;
     visibility: hidden;
+  }
+  .stage-preview.is-past {
+    transform: translate(-64px, -20px) rotateY(12deg) rotate(-7deg) scale(0.94);
   }
   .stage-preview.is-active {
     opacity: 1;
@@ -662,6 +949,8 @@ details p a {
     max-height: 710px;
     width: auto;
     aspect-ratio: 1320/2868;
+    border-color: var(--chapter-edge);
+    transition: border-color 400ms;
   }
   .stage-preview .phone img {
     height: 100%;
@@ -832,6 +1121,17 @@ details p a {
     width: min(100%, 390px);
     margin: auto;
   }
+  .hero-phone .phone {
+    padding: 4px;
+  }
+  .hero-phone .phone img {
+    border-radius: calc(var(--phone-radius) - 4px);
+  }
+  .hero-phone .hero-first-screen {
+    inset: 4px;
+    width: calc(100% - 8px);
+    height: calc(100% - 8px);
+  }
 
   .walkthrough {
     padding-top: 25px;
@@ -869,6 +1169,10 @@ details p a {
 
   .scene {
     max-width: 300px;
+  }
+  .scene::before {
+    width: 108%;
+    left: -4%;
   }
 
   .phone {
@@ -1028,7 +1332,7 @@ details p a {
   .stage-preview {
     transition:
       opacity 0.4s var(--ease),
-      transform 0.55s var(--ease),
+      transform 0.7s var(--ease),
       visibility 0s 0.4s;
   }
   .stage-preview.is-active {

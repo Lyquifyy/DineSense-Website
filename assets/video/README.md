@@ -1,10 +1,10 @@
 # Website motion
 
-These are the tracked production exports. The public website needs only these MP4s and JPEG posters; it has no Remotion runtime or external video service.
+These are the tracked marketing exports. The current website hero uses the existing WebP captures in a live CSS composition and does not download these MP4s. The films remain available for marketing reuse; there is no Remotion runtime or external video service on the public website.
 
 | Asset | Placement | Format |
 | --- | --- | --- |
-| `dinesense-loop.mp4` | Silent hero loop | 1000 × 1120, 8 seconds |
+| `dinesense-loop.mp4` | Original silent hero film, retained for reuse | 1000 × 1120, 8 seconds |
 | `dinesense-demo.mp4` | Marketing film, not embedded on the website | 1600 × 900, 22 seconds |
 
 H.264, yuv420p, BT.709; matching posters use the first complete scene. All screens are unchanged app captures animated for marketing. Dark screens show deterministic demo data, including example nutrition and source URLs. They do not establish live menu coverage.
