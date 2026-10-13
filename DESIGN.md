@@ -125,7 +125,7 @@ Buttons use modest corners; screenshots use rounded phone frames with 6px inset 
 
 **Pilot action.** “Request pilot access” is the primary CTA in the header, hero and final section. The hero uses sage with dark ink; the closing invitation uses warm black with cream text. Both have a 55px minimum height and a decorative arrow. They open a prefilled email to `dinesense.feedback@gmail.com`; Contact remains available in the footer. There is no submission form or simulated success state. The secondary hero link, “Explore the app,” is an understated underlined anchor with an authored SVG direction arrow.
 
-**Brand flourish.** The inline plate-and-spark drawing is authored for the website from its existing identity. It is a decorative SVG with a rounded, nonscaling 1.5px stroke and `aria-hidden`, separate from the actual app captures. No screenshot content is retouched.
+**Brand artwork.** The plate-and-spark drawings frame the app screens in the hero and walkthrough. They are decorative and hidden from accessibility, separate from the actual app captures. The main headline has no circle, star or underline ornament. No screenshot content is retouched.
 
 **Navigation and focus.** Keep the skip link, semantic navigation landmarks, native anchors and visible 2px sage focus outlines with 6px offsets. Script-assisted anchors move focus to the destination heading without replacing native scrolling, then remove temporary tab stops on blur. The current enhanced chapter has accented text, an underline and `aria-current="step"`; labels and position retain meaning independently of color. Mobile hides duplicate header links while preserving the pilot action.
 
