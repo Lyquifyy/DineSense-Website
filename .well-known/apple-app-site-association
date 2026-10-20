@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["6X8347DD7C.com.dinesense.app"],
+        "components": [
+          { "/": "/o", "comment": "A shared order, read from the fragment by the app" },
+          { "/": "/o/", "comment": "The same, with a trailing slash" }
+        ]
+      }
+    ]
+  }
+}

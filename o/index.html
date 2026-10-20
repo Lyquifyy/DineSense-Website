@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0f0e0c" />
+    <meta
+      name="description"
+      content="An order someone shared from DineSense: the dish, what to ask for, and its calories and macros."
+    />
+    <title>A shared order — DineSense</title>
+    <meta property="og:title" content="A shared order — DineSense" />
+    <meta
+      property="og:description"
+      content="The dish, the exact order to ask for, and its calories and macros. Open it in DineSense."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://dinesense.app/o" />
+    <meta property="og:image" content="https://dinesense.app/assets/share-preview.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- Apple's Smart App Banner: filled in once the app is on the App Store
+         (App Store Connect > App Information > Apple ID). The same id goes in
+         data-app-store below. -->
+    <!-- <meta name="apple-itunes-app" content="app-id=APPLE_ID, app-argument=https://dinesense.app/o" /> -->
+    <link rel="icon" href="../assets/dinesense-mark.webp" type="image/webp" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body data-app-store="">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header shell">
+      <a class="brand" href="../index.html" aria-label="DineSense home"
+        ><img
+          src="../assets/dinesense-mark.webp"
+          width="40"
+          height="40"
+          alt=""
+        /><span>DineSense</span></a
+      >
+      <nav aria-label="Main navigation">
+        <a href="../index.html#how-it-works">The app</a
+        ><a href="../support.html">Support</a>
+      </nav>
+    </header>
+    <main class="info-page shell" id="main">
+      <p class="info-note order-eyebrow">Shared from DineSense</p>
+      <section class="order" id="order" hidden>
+        <p class="order-place"><span class="monogram" id="monogram" aria-hidden="true"></span><span id="place"></span></p>
+        <h1 id="dish"></h1>
+        <ul class="order-lines" id="lines" aria-label="The order"></ul>
+        <dl class="order-figures" id="figures">
+          <div><dt>Calories</dt><dd id="calories"></dd></div>
+          <div><dt>Protein</dt><dd id="protein"></dd></div>
+          <div><dt>Carbs</dt><dd id="carbs"></dd></div>
+          <div><dt>Fat</dt><dd id="fat"></dd></div>
+        </dl>
+        <p class="order-target" id="target" hidden></p>
+        <p class="info-note" id="source"></p>
+        <p class="info-note">
+          As it was shared. Menus change, so if anything looks different, check
+          the menu board.
+        </p>
+      </section>
+      <section class="order-missing" id="missing" hidden>
+        <h1>This link didn’t carry an order.</h1>
+        <p>
+          It may have been cut short when it was pasted. Ask for it again, or
+          open DineSense to find a meal near you.
+        </p>
+      </section>
+      <p class="order-actions">
+        <a class="button button-primary" id="open" href="../index.html"
+          >Open in DineSense <span aria-hidden="true">↗</span></a
+        >
+      </p>
+      <p class="info-note" id="get-note">
+        DineSense finds restaurant dishes near you and shows the exact order
+        that fits this meal. iPhone, iOS 26 or later.
+      </p>
+    </main>
+    <footer class="site-footer shell">
+      <div class="footer-brand">
+        <a class="brand" href="../index.html"
+          ><img
+            src="../assets/dinesense-mark.webp"
+            width="36"
+            height="36"
+            alt=""
+          /><span>DineSense</span></a
+        >
+        <p>For the meal in front of you.</p>
+      </div>
+      <nav aria-label="Footer">
+        <a href="../privacy.html">Privacy</a><a href="../support.html">Support</a
+        ><a href="mailto:dinesense.feedback@gmail.com">Contact</a>
+      </nav>
+      <p class="copyright">© 2026 DineSense</p>
+    </footer>
+    <script>
+      // The order is in the fragment, so no server sees it (shared/share.ts
+      // in the app repository is the source of truth for this shape).
+      "use strict";
+      (function () {
+        var MAX_LINES = 8;
+        function fromBase64Url(text) {
+          if (!/^[A-Za-z0-9_-]+$/.test(text)) return null;
+          var base64 = text.replace(/-/g, "+").replace(/_/g, "/");
+          base64 += "=".repeat((4 - (base64.length % 4)) % 4);
+          try {
+            var binary = atob(base64);
+            var bytes = new Uint8Array(binary.length);
+            for (var i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+            return new TextDecoder("utf-8", { fatal: true }).decode(bytes);
+          } catch (e) {
+            return null;
+          }
+        }
+        function isNumber(v) {
+          return typeof v === "number" && isFinite(v);
+        }
+        function isText(v, max) {
+          return typeof v === "string" && v.length > 0 && v.length <= max;
+        }
+        function decode(fragment) {
+          var payload = fragment.replace(/^#/, "");
+          if (payload.indexOf("v1.") !== 0) return null;
+          var json = fromBase64Url(payload.slice(3));
+          if (json === null) return null;
+          var w;
+          try {
+            w = JSON.parse(json);
+          } catch (e) {
+            return null;
+          }
+          if (!w || typeof w !== "object" || Array.isArray(w) || w.v !== 1) return null;
+          if (!isText(w.n, 80) || typeof w.p !== "string" || w.p.length > 60) return null;
+          if (!Array.isArray(w.f) || w.f.length !== 4 || !w.f.every(isNumber)) return null;
+          if (!Array.isArray(w.o) || w.o.length > MAX_LINES) return null;
+          for (var i = 0; i < w.o.length; i++) if (!isText(w.o[i], 60)) return null;
+          if (w.s !== "p" && w.s !== "e") return null;
+          var target = null;
+          if (w.t !== undefined) {
+            if (!Array.isArray(w.t) || w.t.length !== 4) return null;
+            for (var j = 0; j < 4; j++) if (w.t[j] !== null && !isNumber(w.t[j])) return null;
+            target = w.t;
+          }
+          if (w.c !== undefined && !isText(w.c, 60)) return null;
+          if (w.d !== undefined && !/^\d{4}-\d{2}-\d{2}$/.test(w.d)) return null;
+          return {
+            name: w.n,
+            place: w.p,
+            lines: w.o,
+            figures: w.f,
+            estimate: w.s === "e",
+            checked: w.d || null,
+            target: target,
+          };
+        }
+        function grams(n) {
+          return String(Math.round(n * 10) / 10);
+        }
+        function month(day) {
+          if (!day) return null;
+          var d = new Date(day + "T12:00:00Z");
+          if (isNaN(d.getTime())) return null;
+          return d.toLocaleDateString("en-US", { month: "short", year: "numeric", timeZone: "UTC" });
+        }
+        function capitalized(text) {
+          return text.charAt(0).toUpperCase() + text.slice(1);
+        }
+        var order = decode(location.hash);
+        var body = document.body;
+        var appStore = body.getAttribute("data-app-store");
+        var open = document.getElementById("open");
+        if (appStore) {
+          open.href = "https://apps.apple.com/app/id" + appStore + "?ct=share&mt=8";
+          open.textContent = "Get DineSense";
+        }
+        if (!order) {
+          document.getElementById("missing").hidden = false;
+          document.title = "DineSense";
+          return;
+        }
+        var about = order.estimate ? "about " : "";
+        document.getElementById("place").textContent = order.place;
+        var first = (order.place.match(/[\p{L}\p{N}]/u) || ["·"])[0];
+        document.getElementById("monogram").textContent = first.toUpperCase();
+        document.getElementById("dish").textContent = order.name;
+        document.title = order.name + " at " + order.place + " — DineSense";
+        var lines = document.getElementById("lines");
+        if (order.lines.length === 0) {
+          var li = document.createElement("li");
+          li.textContent = "As it comes.";
+          lines.appendChild(li);
+        }
+        order.lines.forEach(function (line) {
+          var li = document.createElement("li");
+          li.textContent = capitalized(line);
+          lines.appendChild(li);
+        });
+        document.getElementById("calories").textContent = about + Math.round(order.figures[0]);
+        document.getElementById("protein").textContent = grams(order.figures[1]) + " g";
+        document.getElementById("carbs").textContent = grams(order.figures[2]) + " g";
+        document.getElementById("fat").textContent = grams(order.figures[3]) + " g";
+        if (order.target) {
+          var parts = [];
+          if (order.target[0] !== null) parts.push(Math.round(order.target[0]) + " cal");
+          if (order.target[1] !== null) parts.push(grams(order.target[1]) + " g protein");
+          if (order.target[2] !== null) parts.push(grams(order.target[2]) + " g carbs");
+          if (order.target[3] !== null) parts.push(grams(order.target[3]) + " g fat");
+          var target = document.getElementById("target");
+          target.textContent = "Their target for this meal: " + parts.join(", ") + ".";
+          target.hidden = parts.length === 0;
+        }
+        var when = month(order.checked);
+        document.getElementById("source").textContent = order.estimate
+          ? "Estimate"
+          : (order.place ? order.place + "’s published nutrition" : "Published nutrition") + (when ? ", " + when : "");
+        document.getElementById("order").hidden = false;
+      })();
+    </script>
+  </body>
+</html>
