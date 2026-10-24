@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dinesense.app/sitemap.xml

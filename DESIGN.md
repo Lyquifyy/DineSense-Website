@@ -53,9 +53,9 @@ components:
 
 **Creative North Star: "The app, after dark."**
 
-The implemented world is warm and cinematic: dark SwiftUI app screens sit inside a spacious editorial page, with cream Fraunces headlines, sage actions and brass details. Real app evidence carries the story. The opening fans three phones over a forest-green place setting; the walkthrough turns the same plate motif as the order takes shape. A cream-to-sage sweep gives the pilot invitation its closing moment. The approved direction and product boundaries are summarized in [PRODUCT.md](PRODUCT.md).
+The implemented world is warm and cinematic: dark SwiftUI app screens sit inside a spacious editorial page, with cream Fraunces headlines, sage actions and brass details. Real app evidence carries the story. The opening fans three phones over a forest-green place setting; the walkthrough turns the same plate motif as the order takes shape. A cream-to-sage sweep gives the App Store invitation its closing moment. The approved direction and product boundaries are summarized in [PRODUCT.md](PRODUCT.md).
 
-This is a code-first implementation of the user-pinned cinematic app-preview direction. No image composition or random concept seed is its visual authority. The source of truth is [styles.css](styles.css), [index.html](index.html) and [script.js](script.js); this document records that implementation. [PRODUCT.md](PRODUCT.md) owns product boundaries. Support and Privacy share the visual system without changing the substance of privacy disclosures.
+This is a code-first implementation of the user-pinned cinematic app-preview direction. No image composition or random concept seed is its visual authority. The source of truth is [styles.css](styles.css), [index.html](index.html), [script.js](script.js) and the scoped [guides/guides.css](guides/guides.css); this document records that implementation. [PRODUCT.md](PRODUCT.md) owns product boundaries. Support, Privacy and restaurant guides share the visual system. Guides extend the existing reading layout; their page strategy lives in [.impeccable/surfaces/guides.md](.impeccable/surfaces/guides.md). Substantive privacy disclosures are preserved.
 
 **Key Characteristics:**
 
@@ -95,15 +95,15 @@ The shared centered shell has a 1240px maximum and 56px side gutters. The deskto
 | Your order  | Supported ingredient changes                     | Exact edited order ticket                  |
 | Ready to go | Lock Screen order and manual tracker copying     |                                            |
 
-One compact nutrition-source band follows the journey, then three practical FAQ answers, the pilot action and footer. Both meal-style and numeric-target audiences retain a full stage. Removed the redundant introduction, map and picked-order stages, screenshot captions, side notes, example numbers and repeated order quotation.
+One compact nutrition-source band follows the journey, then three practical FAQ answers, the App Store action and footer. Both meal-style and numeric-target audiences retain a full stage. Removed the redundant introduction, map and picked-order stages, screenshot captions, side notes, example numbers and repeated order quotation.
 
-The final pilot invitation is a rectangular sage field inside the shell. Its headline sits opposite one email action. At 650px and below it becomes a single column. There is no repeated email address, helper sentence or decorative closing mark. The shared footer and walkthrough remain on warm black.
+The final download invitation is a rectangular sage field inside the shell. Its headline sits opposite the free-first-search-and-order qualification and one App Store action. At 650px and below it becomes a single column. There is no repeated email address or decorative closing mark. The shared footer and walkthrough remain on warm black. The existing pilot-named CSS classes style this download section; they do not indicate pilot availability.
 
 The authored walkthrough is complete static content. JavaScript enables the sticky chapter navigation and single preview column only at **at least 960px wide AND at least 740px tall**, with `IntersectionObserver` available, reduced motion off and data saver off. Each enhanced stage occupies at least 82vh; the preview sits 115px below the top, and the chapter bar sits at the top. Native scrolling selects the stage nearest the viewport midpoint. The preview column clips decorative rotation with a 32px paint allowance, preventing horizontal page overflow.
 
-At smaller widths, short viewport heights, with reduced motion or data saver, or without JavaScript/observer support, each original screenshot stays beside its own copy in normal document flow, over a static colored plate. At 959px and below gutters become 32px; at 650px and below they become 20px, the hero and stages stack, the chapter links form two columns, and nutrition/FAQ/pilot content stacks. At 370px and below gutters are 16px and the phones and key headings shrink further. Mobile keeps every scene and the pilot action available.
+At smaller widths, short viewport heights, with reduced motion or data saver, or without JavaScript/observer support, each original screenshot stays beside its own copy in normal document flow, over a static colored plate. At 959px and below gutters become 32px; at 650px and below they become 20px, the hero and stages stack, the chapter links form two columns, and nutrition/FAQ/download content stacks. At 370px and below gutters are 16px and the phones and key headings shrink further. Mobile keeps every scene and the App Store action available.
 
-Support and Privacy use the same header, footer, type, palette and focus treatment, with an 800px maximum reading column.
+Support and Privacy use the same header, footer, type, palette and focus treatment, with an 800px maximum reading column. Guides inherit that reading page and widen its maximum to 900px. They retain the shared responsive gutters, with paragraphs capped at 68ch. Guide articles remain in normal document flow, with no walkthrough script or new motion. Section spacing is 3.5rem, reducing to 2.6rem at 650px and below.
 
 ## Elevation & Depth
 
@@ -113,7 +113,7 @@ Support and Privacy use the same header, footer, type, palette and focus treatme
 
 **Continuity.** Desktop walkthrough scenes pass left and right through a short 0.4s opacity / 0.7s perspective transition. The plate turns 62° with each scene, keeping the sequence spatially connected; the chapter color changes with the labeled chapter. A thin line beneath navigation follows scroll progress without a counter or extra label. Animation frames are requested only after scroll/resize/navigation events, and geometry work stops outside the walkthrough. Scrolling remains native.
 
-**Feedback and conclusion.** Fine-pointer movement tilts the hero within ±5° vertically and ±6° horizontally, returning to rest on exit. There is no idle movement. CTA arrows retain their brief directional hover/focus response. The closing invitation performs one 1.1s cream-to-sage clip sweep, with its text and email action visible throughout.
+**Feedback and conclusion.** Fine-pointer movement tilts the hero within ±5° vertically and ±6° horizontally, returning to rest on exit. There is no idle movement. CTA arrows retain their brief directional hover/focus response. The closing invitation performs one 1.1s cream-to-sage clip sweep, with its text and App Store action visible throughout.
 
 **Fallbacks and interruptions.** Entrance animations pause offscreen or when the document is hidden. Returning resumes an unfinished entrance without replaying a completed one. Reduced motion and data saver keep a composed hero and static walkthrough; changing either setting cancels the decorative entrance. Reduced motion also removes transitions, pointer depth and smooth scrolling. Without JavaScript or observer support, complete static scenes and native links remain available. There is no video element, play/pause UI or repeating animation.
 
@@ -123,31 +123,35 @@ Buttons use modest corners; screenshots use rounded phone frames with 6px inset 
 
 ## Components
 
-**Pilot action.** “Request pilot access” is the primary CTA in the header, hero and final section. The hero uses sage with dark ink; the closing invitation uses warm black with cream text. Both have a 55px minimum height and a decorative arrow. They open a prefilled email to `dinesense.feedback@gmail.com`; Contact remains available in the footer. There is no submission form or simulated success state. The secondary hero link, “Explore the app,” is an understated underlined anchor with an authored SVG direction arrow.
+**App Store action.** “Get DineSense” is the primary CTA in the header, hero and final section. The hero uses sage with dark ink; the closing invitation uses warm black with cream text. Both have a 55px minimum height and a decorative arrow. They open `https://apps.apple.com/us/app/dinesense/id6816440061`. Guide articles use “Get DineSense for iPhone” below the calculation and qualifications. Support and Contact remain email links. There is no submission form or simulated success state. The secondary hero link, “Explore the app,” is an understated underlined anchor with an authored SVG direction arrow.
 
 **Brand artwork.** The plate-and-spark drawings frame the app screens in the hero and walkthrough. They are decorative and hidden from accessibility, separate from the actual app captures. The main headline has no circle, star or underline ornament. No screenshot content is retouched.
 
-**Navigation and focus.** Keep the skip link, semantic navigation landmarks, native anchors and visible 2px sage focus outlines with 6px offsets. Script-assisted anchors move focus to the destination heading without replacing native scrolling, then remove temporary tab stops on blur. The current enhanced chapter has accented text, an underline and `aria-current="step"`; labels and position retain meaning independently of color. Mobile hides duplicate header links while preserving the pilot action.
+**Navigation and focus.** Keep the skip link, semantic navigation landmarks, native anchors and visible 2px sage focus outlines with 6px offsets. Script-assisted anchors move focus to the destination heading without replacing native scrolling, then remove temporary tab stops on blur. The current enhanced chapter has accented text, an underline and `aria-current="step"`; labels and position retain meaning independently of color. Mobile hides duplicate header links while preserving the App Store action.
 
 **App scenes.** Original figures carry meaningful alternative descriptions of the actual screen state. There are no repeated visible captions or demo-data descriptors. In enhanced mode those originals are visually hidden, not removed from accessibility; the sticky copies sit in an `aria-hidden` container, have empty alt text and no copied controls or IDs. Preserve the screenshot descriptions when updating captures. The website never exposes fake meal-style, order-editor or tracker controls.
 
 **Nutrition source.** A compact band explains that published nutrition links to its source and estimates remain marked. Approximation marks and source information within the original app screenshots stay intact. Detailed capture provenance remains in assets/SOURCES.md.
 
-**FAQ.** Three native `details`/`summary` rows cover requirements, tracker copying and menu coverage. They work without JavaScript and retain keyboard focus styling. Support and Privacy remain linked for more detail.
+**FAQ.** Three native `details`/`summary` rows cover requirements, tracker copying and menu coverage. The requirements answer states that an account is required, the first search and order are free, and continued use requires Pro. They work without JavaScript and retain keyboard focus styling. Support and Privacy remain linked for more detail.
+
+**Guide articles and index.** The index uses three text-led article links separated by fine rules. Articles begin with a back link, a Fraunces title at `clamp(2.6rem, 6vw, 4.5rem)` / 1.08, and an introductory paragraph at 1.15rem. Section headings use `clamp(1.7rem, 4vw, 2.4rem)` / 1.2. The complete order uses 1.2rem cream body text, followed by semibold tabular figures and a native “Open this order” link to the shared-order route. The final download section has a top rule and 2rem top padding. Reuse the current brand mark and local fonts; guides introduce no new raster imagery.
+
+**Guide nutrition table.** A semantic table shows ingredient and serving, calories, protein, carbs and fat, followed by a total row. Ingredient labels align left, figures right, and all numbers use tabular forms. Serving sizes sit beneath ingredients in muted text. Fine rules separate rows; there are no colored nutrition badges. A 580px minimum table width sits in a native horizontal scroll region with an accessible name and keyboard tab stop. At 650px and below, the visible instruction “Scroll the table to see all nutrition columns.” appears above it. Guide focus outlines remain sage, 2px wide with a 5px offset. Keep the caption, row/column headers, source links, checked date and serving qualifications as visible text.
 
 **Capture and refresh.** The current set was captured October 11, 2026 from app commit **`b783e95`**, in a local Debug build on iPhone 17 Pro Max / iOS 26.5 Simulator. Original captures are 1320 × 2868; the page uses direct 440px and 880px WebP derivatives with explicit dimensions and responsive sources. Screens use dark appearance; the real iOS Lock Screen retains its system wallpaper.
 
 Follow [assets/SOURCES.md](assets/SOURCES.md) for the authoritative capture recipe, flags, scenario mapping, processing and refresh checks. Keep one consistent bowl through result, edit, ticket, pick and Live Activity. Record the new commit, capture date and simulator version there; check the full screens and website crops at readable size after replacement. Keep app text, totals, source URLs and approximation marks intact. Refresh guidance belongs in that source record so launch commands are not duplicated here.
 
-All captures show **demo data**. They establish what the app UI looks like, not current restaurant nutrition, live local coverage, deployed-backend acceptance or real-device release evidence. The user explicitly requested removal of visible demo descriptors; provenance remains in the repository. Retain the original screens, their approximation marks and font licenses with the assets.
+All app screenshots show **demo data**. They establish what the app UI looks like, not current restaurant nutrition, live local coverage, deployed-backend acceptance or real-device release evidence. The user explicitly requested removal of visible demo descriptors; provenance remains in the repository. Retain the original screens, their approximation marks and font licenses with the assets.
 
 ## Do's and Don'ts
 
 - **Do** preserve the dark cinematic app-preview world, the plate-and-spark identity and the equal depth given to meal styles and numeric targets.
 - **Do** keep meaningful alternative screen descriptions, source information and approximation marks within the original captures, and provenance in the repository.
-- **Do** retain the complete static document and native email, anchor and disclosure behavior.
-- **Do** keep availability explicit: a small invite-only TestFlight pilot for iPhone with iOS 26 or later; requirements and access details follow PRODUCT.md.
+- **Do** retain the complete static document and native App Store, email, anchor, table-scroll and disclosure behavior.
+- **Do** keep availability explicit: the U.S. App Store release for iPhone with iOS 26 or later; an account is required, the first search and order are free, and continued use requires Pro. Requirements and access details follow PRODUCT.md.
 - **Don't** restore the retired restaurant-photo hero, paper preview construction, daily-budget narrative or Android availability claims.
 - **Don't** retouch screenshots into marketing UI, invent app controls, hide estimation marks or present demo figures as current restaurant facts.
-- **Don't** imply public download access, guaranteed invitations, automatic tracker logging, restaurant ordering/payment or universal menu coverage.
+- **Don't** imply Android availability, automatic tracker logging, restaurant ordering/payment or universal menu coverage.
 - **Don't** introduce scroll hijacking, motion-dependent information or new runtime services to this static site.
