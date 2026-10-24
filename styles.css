@@ -13,21 +13,21 @@
   font-display: swap;
 }
 :root {
-  color-scheme: dark;
-  --bg: #0f0e0c;
-  --surface: #1a1815;
-  --raised: #24211d;
-  --text: #f2ede3;
-  --muted: #b3ada1;
-  --line: #39372f;
-  --sage: #9ccfae;
-  --green: #111c16;
-  --forest: #203d2c;
-  --forest-edge: #49684f;
-  --on-forest: #c6d4c6;
-  --olive: #343b25;
-  --olive-edge: #797a4c;
-  --brass: #c9a45c;
+  color-scheme: light;
+  --bg: #f6f5f2;
+  --surface: #ffffff;
+  --raised: #e9efe7;
+  --text: #18271e;
+  --muted: #536154;
+  --line: #d3d9cf;
+  --sage: #216545;
+  --green: #184d33;
+  --forest: #e5eedd;
+  --forest-edge: #aec5ac;
+  --on-forest: #465a49;
+  --olive: #f0edd8;
+  --olive-edge: #d0c797;
+  --brass: #8a6425;
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --serif: Fraunces, Georgia, serif;
   --shell: 1240px;
@@ -53,7 +53,7 @@ body {
 }
 ::selection {
   background: var(--sage);
-  color: #0c1a12;
+  color: #ffffff;
 }
 a {
   color: inherit;
@@ -259,7 +259,7 @@ strong {
   border: 1px solid var(--sage);
   border-radius: 5px;
   background: var(--sage);
-  color: #0c1a12;
+  color: #ffffff;
   text-decoration: none;
   font-size: 15px;
   font-weight: 600;
@@ -269,8 +269,8 @@ strong {
     color 0.2s;
 }
 .button:hover {
-  background: #bae0c7;
-  color: #0c1a12;
+  background: #184d33;
+  color: #ffffff;
 }
 .text-link {
   font-size: 14px;
@@ -340,7 +340,7 @@ strong {
   border-radius: 50%;
   border: 1px solid var(--forest-edge);
   background: var(--forest);
-  box-shadow: 0 32px 65px #0005;
+  box-shadow: 0 32px 65px #17332318;
   transform: rotate(-18deg) scaleY(0.9);
 }
 .hero-plate::before,
@@ -375,7 +375,7 @@ strong {
 .hero-phone .phone {
   position: relative;
   border-radius: var(--phone-radius);
-  box-shadow: 0 24px 38px #0007;
+  box-shadow: 0 24px 38px #17332320;
 }
 .hero-phone .phone img {
   border-radius: calc(var(--phone-radius) - 6px);
@@ -493,10 +493,10 @@ strong {
 
 .phone {
   padding: 6px;
-  border: 1px solid #54564d;
+  border: 1px solid #799a80;
   border-radius: 38px;
-  background: #151714;
-  box-shadow: 0 25px 55px #0006;
+  background: #ffffff;
+  box-shadow: 0 25px 55px #17332324;
   overflow: hidden;
 }
 .phone img {
@@ -686,15 +686,15 @@ details p a {
   grid-template-columns: 1.4fr 1fr;
   align-items: end;
   gap: 64px;
-  background: var(--sage);
-  color: var(--bg);
+  background: var(--forest);
+  color: var(--text);
 }
 .pilot-section::before {
   content: "";
   position: absolute;
   z-index: -1;
   inset: 0;
-  background: var(--text);
+  background: var(--surface);
   clip-path: circle(0 at 100% 100%);
 }
 @media (prefers-reduced-motion: no-preference) {
@@ -727,18 +727,18 @@ details p a {
 
 .pilot-action .button {
   width: 100%;
-  background: var(--bg);
-  border-color: var(--bg);
-  color: var(--text);
+  background: var(--sage);
+  border-color: var(--sage);
+  color: #ffffff;
 }
 .pilot-action .button:is(:hover, :focus-visible) {
   background: var(--green);
 }
 .pilot-section .button:active {
-  background: var(--raised);
+  background: var(--green);
 }
 .pilot-section :focus-visible {
-  outline-color: var(--bg);
+  outline-color: var(--sage);
 }
 
 .pilot-section ::selection {
@@ -1328,7 +1328,7 @@ details p a {
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: #1e2a22;
+  background: var(--forest);
   color: var(--sage);
   font: 600 22px/1 var(--serif);
 }
@@ -1380,4 +1380,21 @@ details p a {
   .order-figures {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
+
+/* The next app update shares one light, botanical-green identity. */
+.preview-note { margin-top: 22px; max-width: 42ch; color: var(--muted); font-size: 14px; line-height: 1.55; }
+.preview-note strong { color: var(--sage); }
+.hero-food { position: absolute; width: 230px; right: -10px; bottom: 10px; z-index: 5; pointer-events: none; }
+@media (max-width: 650px) {
+  .hero-stage { margin: 0 auto 110px; }
+  .hero-food { width: 170px; right: 0; top: calc(100% + 12px); bottom: auto; }
+}
+
+/* Original food artwork supports three moments; app screens remain the proof. */
+.story-food { width: min(280px, 72%); margin-top: 28px; }
+.invitation-food { width: min(280px, 70%); margin-bottom: 24px; }
+@media (max-width: 650px) {
+  .story-food { width: 190px; margin-top: 24px; }
+  .invitation-food { width: 220px; margin-bottom: 20px; }
 }

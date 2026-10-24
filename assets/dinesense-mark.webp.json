@@ -1,12 +1,4 @@
 {
-  "prompt": "DineSense current dark app icon, apple/DineSense/Assets.xcassets/AppIcon.appiconset/icon-dark.png at b783e95; resized to 160px.",
-  "kind": "app-icon-export",
-  "sourceCommit": "b783e95",
-  "capturedAt": "2026-10-11",
-  "dimensions": [
-    160,
-    160
-  ],
-  "derivedWithoutRetouching": true,
-  "details": "See assets/SOURCES.md for scenario and refresh steps."
+  "prompt": "Existing DineSense light app icon from apple/DineSense/Assets.xcassets/AppIcon.appiconset/icon-light.png at codex/whole-meal base 7701928; resized to 160 pixels wide for the website, October 24 2026.",
+  "createdAt": "2026-10-24T19:38:14.739Z"
 }

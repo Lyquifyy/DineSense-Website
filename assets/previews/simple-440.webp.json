@@ -1,12 +1,15 @@
 {
-  "prompt": "DineSense SwiftUI simulator capture, demo data; source commit b783e95; 2026-10-11; scenario simple; screenshot simple. Resized only.",
-  "kind": "actual-app-screenshot",
-  "sourceCommit": "b783e95",
-  "capturedAt": "2026-10-11",
-  "dimensions": [
-    440,
-    956
-  ],
-  "derivedWithoutRetouching": true,
-  "details": "See assets/SOURCES.md for scenario and refresh steps."
+  "prompt": "Direct unretouched DineSense Debug app capture, October 24 2026, codex/whole-meal working tree based on 7701928. iPhone 17 / iOS 26.5 Simulator, final light-only capture at 12:23 America/Chicago. Source in the DineSense worktree: .impeccable/review/meal-style-entry.png. Deterministic demo UI for the upcoming update, not public release 1.1.0 or live-backend acceptance. Scenario: simple. Resized to 440 pixels wide, WebP quality 90; original figures, text, source labels and screen furniture unchanged.",
+  "createdAt": "2026-10-24T19:38:14.310Z",
+  "captureOrigin": {
+    "appWorkingTreeBase": "7701928",
+    "device": "iPhone 17",
+    "os": "iOS 26.5",
+    "capturedOn": "2026-10-24",
+    "localTime": "12:23",
+    "timezone": "America/Chicago",
+    "source": ".impeccable/review/meal-style-entry.png",
+    "appearance": "light",
+    "xcresultTimestamp": 1792862601.204
+  }
 }
