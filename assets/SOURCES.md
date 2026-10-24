@@ -1,32 +1,31 @@
 # Website asset sources and refresh procedure
 
-## Active app previews — upcoming update
+## Active app previews — compact Find and whole meals
 
-The homepage uses six actual SwiftUI screens from the `codex/whole-meal` working tree based on merge commit `7701928`, captured October 24, 2026 with deterministic demo data. This is an upcoming app update; the public release remains **1.1.0**. The hero makes that distinction visible. Captures demonstrate UI, not current live coverage, deployed schema acceptance, real-account behavior or successful StoreKit transactions.
+The homepage uses six actual SwiftUI screenshots from merged app revision `5c8fe8c` (PR #90), captured October 24, 2026 by the release-gate UI tests with deterministic demo data and enforced light appearance. These preview upcoming 1.2.0; the public release remains **1.1.0**. The hero retains that visible distinction. These are UI examples, not live-menu, deployed-backend, real-account or StoreKit evidence.
 
-`previews/*-{440,880}.webp` are direct resized screenshots at two widths, WebP quality 90. The app's words, totals, estimate/source labels and screen furniture are unretouched. The JSON sidecars and the table below are the authoritative per-asset capture record. Their `createdAt` is derivative creation time, not the original capture time. All times below are America/Chicago on October 24.
+`previews/*-{440,880}.webp` are direct resized screenshots at two widths, WebP quality 90. App text, totals, source labels and screen furniture are unretouched. JSON sidecars retain the source screenshot hash, commit, device, OS, UTC timestamp and test identity. `createdAt` is derivative generation time. The app repository's `apple/launch/whole-meal-carousel/source/captures.json` records all originals.
 
-| Active asset | Original capture | Device / moment | Scenario |
+| Active asset | Original capture | Device / UTC capture time | Scenario |
 | --- | --- | --- | --- |
-| `simple` | `.impeccable/review/meal-style-entry.png` | iPhone 17, iOS 26.5; final light-only capture, 12:23 | Choose Lighter, Regular meal or More protein |
-| `target` | `apple/launch/whole-meal-carousel/source/carousel-01-find.png` | iPhone 17 Pro, iOS 26.5; light appearance, about 12:06 | Numeric target entry |
-| `results` | `apple/launch/whole-meal-carousel/source/carousel-02-results.png` | Same iPhone 17 Pro capture run | Ranked meal results |
-| `adjust` | `apple/launch/whole-meal-carousel/source/carousel-03-editor.png` | Same iPhone 17 Pro capture run | Whole-meal editor with servings and extras |
-| `edited-order` | `apple/launch/whole-meal-carousel/source/carousel-04-whole-meal.png` | Same iPhone 17 Pro capture run | Main plus two garlic-topped breadsticks, combined total |
-| `saved` | `apple/launch/whole-meal-carousel/source/carousel-05-saved.png` | Same iPhone 17 Pro capture run | Saved whole-meal favorite |
+| `simple` | `apple/launch/whole-meal-carousel/source/carousel-06-meal-style.png` | iPhone 17, iOS 26.5; 2026-10-24T22:03:53.198000+00:00 | Lighter, Regular meal or More protein |
+| `target` | `apple/launch/whole-meal-carousel/source/carousel-01-find.png` | iPhone 17, iOS 26.5; 2026-10-24T22:11:17.084000+00:00 | Compact numeric target entry |
+| `results` | `apple/launch/whole-meal-carousel/source/carousel-02-results.png` | iPhone 17, iOS 26.5; 2026-10-24T22:11:21.535000+00:00 | Ranked meal results |
+| `adjust` | `apple/launch/whole-meal-carousel/source/carousel-03-editor.png` | iPhone 17, iOS 26.5; 2026-10-24T22:11:42.363000+00:00 | Whole-meal editor and quantities |
+| `edited-order` | `apple/launch/whole-meal-carousel/source/carousel-04-whole-meal.png` | iPhone 17, iOS 26.5; 2026-10-24T22:11:45.516000+00:00 | Shrimp Scampi plus two garlic-topped breadsticks |
+| `saved` | `apple/launch/whole-meal-carousel/source/carousel-05-saved.png` | iPhone 17, iOS 26.5; 2026-10-24T22:11:58.999000+00:00 | Saved whole-meal favorite |
 
-Source paths are relative to the DineSense whole-meal worktree. The simple source was exported from `apple/build/light-final.xcresult`; its attachment timestamp is `1792862601.204` (17:23:21 UTC / 12:23:21 CDT). The other five source files preserve the earlier light-appearance run before the final light-only correction. Do not generalize the final iPhone 17 origin to all six images. No screenshot retouching was used to reconcile those capture moments.
+Source paths are relative to the DineSense app worktree. All five order-story captures come from `WholeMealTests.testOliveGardenCarouselEvidence`; Meal style is captured by `SimpleModeTests.testAGoalSearchesInOneTapAndReadsInWords`. These replace the earlier October 24 previews from the pre-merge whole-meal working tree.
 
-The debug Olive Garden scenario uses Shrimp Scampi (490 cal, 29 g protein, 52 g carbs, 18 g fat) and garlic-topped breadsticks (140 cal, 4 g protein, 25 g carbs, 2.5 g fat each), matching the published guide recorded by the app implementation. Two breadsticks bring that example to 770 cal, 37 g protein, 102 g carbs and 23 g fat. This does not establish live coverage or supply Olive Garden drink nutrition. The illustrative drinks on the website are conceptual artwork.
+The Olive Garden example uses Shrimp Scampi (490 cal, 29 g protein, 52 g carbs, 18 g fat) and garlic-topped breadsticks (140 cal, 4 g protein, 25 g carbs, 2.5 g fat each). Two breadsticks yield 770 cal, 37 g protein, 102 g carbs and 23 g fat, matching the app's published-guide example. This does not establish live coverage or supply Olive Garden drink nutrition. Website food artwork is conceptual and unbranded.
 
 ### Refreshing the active set
 
-1. Build the intended SwiftUI Debug revision in the DineSense repository. Record its commit plus uncommitted-build context, simulator model, OS, capture timestamp and appearance. The current app enforces light mode; do not use historical dark-appearance flags as a recipe for this set.
-2. Use the deterministic whole-meal carousel scenario for target, results, editor, full order and Saved, and the meal-style scenario for simple. Keep the same main and breadstick quantities through the sequence. Preserve actual menu/source figures and approximation marks.
-3. Use real app controls, return each screen to its intended scroll position, and wait for UI and scroll transitions to settle. Capture the simulator itself, or export its original XCTest screenshot attachment. Keep the originals in the app review/carousel source directories.
-4. Resize without retouching to 440px and 880px widths, preserving aspect ratio and encoding WebP at quality 90. Update the per-asset JSON sidecars and this mapping with the actual originating device; do not copy generic origin text across different capture sessions.
-5. Keep HTML dimensions, responsive sources and alternative descriptions aligned with the captured state. Inspect full images and the website at desktop and narrow mobile widths, including the hero food placement below the phones.
-6. Keep the upcoming-update notice until the matching app version ships. A marketing capture does not replace the migration deployment, real-device or StoreKit release gates in the app repository.
+1. Run the screenshot-producing UI tests on the intended SwiftUI revision. Record the app commit and any uncommitted executable changes, simulator and OS.
+2. Export original PNGs with `xcrun xcresulttool export attachments`. Preserve the scenario names, attachment timestamps and test identifiers. Confirm the exact dish/serving sequence and update the app's capture manifest.
+3. Resize each original to 440px and 880px widths, preserving aspect ratio, WebP quality 90. Update the JSON sidecars and table above; never retouch UI, nutrition figures or source labels.
+4. Bump the preview cache query in `index.html`, preserve dimensions and alternative descriptions, and inspect the updated screens in the actual walkthrough.
+5. Keep the upcoming-update notice until the matching app version is released. Simulator images do not replace physical-device or StoreKit acceptance.
 
 ## Active original artwork
 
