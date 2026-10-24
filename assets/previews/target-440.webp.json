@@ -1,14 +1,19 @@
 {
-  "prompt": "Direct unretouched DineSense Debug app capture, October 24 2026, codex/whole-meal working tree based on 7701928. iPhone 17 Pro / iOS 26.5 Simulator, light appearance captured at about 12:06 America/Chicago, before the final light-only correction. Source in the DineSense worktree: apple/launch/whole-meal-carousel/source/carousel-01-find.png. Deterministic demo UI for the upcoming update, not public release 1.1.0 or live-backend acceptance. Scenario: target. Resized to 440 pixels wide, WebP quality 90; original figures, text, source labels and screen furniture unchanged.",
-  "createdAt": "2026-10-24T19:38:14.369Z",
+  "prompt": "Direct unretouched DineSense Debug app screenshot from merged app revision 5c8fe8c, iPhone 17 / iOS 26.5, enforced light appearance. Deterministic demo scenario: target. Resized to 440px wide, WebP quality 90. Upcoming 1.2.0 UI, not public 1.1.0, live-backend or real-device evidence.",
+  "createdAt": "2026-10-24T22:16:29.404Z",
   "captureOrigin": {
-    "appWorkingTreeBase": "7701928",
-    "device": "iPhone 17 Pro",
+    "file": "source/carousel-01-find.png",
+    "appCommit": "5c8fe8c310333a672df4250100abf7f24c2adc4f",
+    "device": "iPhone 17",
     "os": "iOS 26.5",
-    "capturedOn": "2026-10-24",
-    "localTime": "about 12:06",
-    "timezone": "America/Chicago",
-    "source": "apple/launch/whole-meal-carousel/source/carousel-01-find.png",
-    "appearance": "light"
+    "capturedAt": "2026-10-24T22:11:17.084000+00:00",
+    "testIdentifier": "WholeMealTests/testOliveGardenCarouselEvidence()",
+    "attachmentName": "carousel-01-find_0_2C7CA6E5-C293-4612-A1A1-E065FFBD2B7A.png",
+    "width": 1206,
+    "height": 2622,
+    "sha256": "433bf21786043cb7f5e92f85201ceb1eafdb60a7bec61b58bc4cc5fca0bfa32b",
+    "appearance": "light",
+    "data": "deterministic Debug demo",
+    "source": "apple/launch/whole-meal-carousel/source/carousel-01-find.png"
   }
 }
