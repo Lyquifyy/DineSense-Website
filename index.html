@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#0f0e0c" />
+    <meta name="theme-color" content="#f6f5f2" />
+    <meta property="og:image" content="https://dinesense.app/assets/share-preview.png" />
     <meta
       name="description"
       content="Bring your meal’s numbers or choose a meal style. DineSense finds nearby dishes, helps you adjust an order, and keeps the exact words handy on iPhone."
@@ -17,7 +18,7 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://dinesense.app/" />
-    <link rel="icon" href="assets/dinesense-mark.webp" type="image/webp" />
+    <link rel="icon" href="assets/dinesense-mark.webp?v=20261024" type="image/webp" />
     <link
       rel="preload"
       href="assets/fraunces-regular.ttf"
@@ -28,19 +29,25 @@
     <link
       rel="preload"
       as="image"
-      href="assets/previews/edited-order-880.webp"
-      imagesrcset="assets/previews/edited-order-440.webp 440w, assets/previews/edited-order-880.webp 880w"
+      href="assets/previews/edited-order-880.webp?v=20261024"
+      imagesrcset="assets/previews/edited-order-440.webp?v=20261024 440w, assets/previews/edited-order-880.webp?v=20261024 880w"
       imagesizes="(max-width: 650px) 44vw, 270px"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20261024" />
     <script src="script.js" defer></script>
   </head>
   <body>
+    <!-- THESIS: A clear, welcoming introduction to choosing a restaurant meal.
+    OWN-WORLD: Warm ivory, botanical green actions, ink Fraunces headlines, real light app screens.
+    STORY: Pick a meal style or numbers, find an entrée, add sides, retain the whole order.
+    FIRST VIEWPORT: Editorial promise at left, a fan of actual app previews and original food art at right.
+    FORM: Code-led refinement of the existing native-scroll website; user requested light only and refreshed images.
+    FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance -->
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header shell">
       <a class="brand" href="index.html" aria-label="DineSense home"
         ><img
-          src="assets/dinesense-mark.webp"
+          src="assets/dinesense-mark.webp?v=20261024"
           width="40"
           height="40"
           alt=""
@@ -85,6 +92,7 @@
                 <path d="M12 5v14m-5-5 5 5 5-5" /></svg
             ></a>
           </div>
+          <p class="preview-note"><strong>Coming in the next update:</strong> a brighter look and whole-meal customization. The screens below preview what’s next.</p>
           <p class="availability">
             <span class="status-dot" aria-hidden="true"></span> Available in the U.S. · iPhone · iOS 26+
           </p>
@@ -92,6 +100,7 @@
         <div class="hero-stage" aria-hidden="true">
           <div class="hero-depth">
             <div class="hero-plate"></div>
+            <img class="hero-food" src="assets/meal-illustration.webp?v=20261024" width="1200" height="600" alt="" decoding="async" />
             <svg class="hero-orbit" viewBox="0 0 600 680">
               <path
                 class="orbit-trail"
@@ -106,9 +115,9 @@
             <div class="hero-phone hero-phone-target">
               <div class="phone">
                 <img
-                  src="assets/previews/target-440.webp"
-                  width="1320"
-                  height="2868"
+                  src="assets/previews/target-440.webp?v=20261024"
+                  width="1206"
+                  height="2622"
                   alt=""
                   decoding="async"
                 />
@@ -117,9 +126,9 @@
             <div class="hero-phone hero-phone-style">
               <div class="phone">
                 <img
-                  src="assets/previews/simple-440.webp"
-                  width="1320"
-                  height="2868"
+                  src="assets/previews/simple-440.webp?v=20261024"
+                  width="1206"
+                  height="2622"
                   alt=""
                   decoding="async"
                 />
@@ -128,23 +137,23 @@
             <div class="hero-phone hero-phone-order">
               <div class="phone">
                 <img
-                  src="assets/previews/edited-order-880.webp"
+                  src="assets/previews/edited-order-880.webp?v=20261024"
                   srcset="
-                    assets/previews/edited-order-440.webp 440w,
-                    assets/previews/edited-order-880.webp 880w
+                    assets/previews/edited-order-440.webp?v=20261024 440w,
+                    assets/previews/edited-order-880.webp?v=20261024 880w
                   "
                   sizes="(max-width: 650px) 44vw, 270px"
-                  width="1320"
-                  height="2868"
+                  width="1206"
+                  height="2622"
                   alt=""
                   fetchpriority="high"
                   decoding="async"
                 />
                 <img
                   class="hero-first-screen"
-                  src="assets/previews/results-440.webp"
-                  width="1320"
-                  height="2868"
+                  src="assets/previews/results-440.webp?v=20261024"
+                  width="1206"
+                  height="2622"
                   alt=""
                   decoding="async"
                 />
@@ -182,14 +191,14 @@
                 <figure class="scene">
                   <div class="phone">
                     <img
-                      src="assets/previews/simple-880.webp"
+                      src="assets/previews/simple-880.webp?v=20261024"
                       srcset="
-                        assets/previews/simple-440.webp 440w,
-                        assets/previews/simple-880.webp 880w
+                        assets/previews/simple-440.webp?v=20261024 440w,
+                        assets/previews/simple-880.webp?v=20261024 880w
                       "
                       sizes="(max-width: 600px) 80vw, 330px"
-                      width="1320"
-                      height="2868"
+                      width="1206"
+                      height="2622"
                       alt="The Find screen offers Lighter, Regular meal, and More protein."
                       loading="lazy"
                       decoding="async"
@@ -208,15 +217,15 @@
                 <figure class="scene">
                   <div class="phone">
                     <img
-                      src="assets/previews/target-880.webp"
+                      src="assets/previews/target-880.webp?v=20261024"
                       srcset="
-                        assets/previews/target-440.webp 440w,
-                        assets/previews/target-880.webp 880w
+                        assets/previews/target-440.webp?v=20261024 440w,
+                        assets/previews/target-880.webp?v=20261024 880w
                       "
                       sizes="(max-width: 600px) 80vw, 330px"
-                      width="1320"
-                      height="2868"
-                      alt="A numeric meal target of 650 calories and 50 grams protein, with optional carbs and fat."
+                      width="1206"
+                      height="2622"
+                      alt="The Find screen with calorie and protein fields, optional carbs and fat, and a saved Dinner target."
                       loading="lazy"
                       decoding="async"
                     />
@@ -238,15 +247,15 @@
                 <figure class="scene">
                   <div class="phone">
                     <img
-                      src="assets/previews/results-880.webp"
+                      src="assets/previews/results-880.webp?v=20261024"
                       srcset="
-                        assets/previews/results-440.webp 440w,
-                        assets/previews/results-880.webp 880w
+                        assets/previews/results-440.webp?v=20261024 440w,
+                        assets/previews/results-880.webp?v=20261024 880w
                       "
                       sizes="(max-width: 600px) 80vw, 330px"
-                      width="1320"
-                      height="2868"
-                      alt="Ranked dishes include a chicken burrito bowl with a no-cheese suggestion and an estimated salmon dish."
+                      width="1206"
+                      height="2622"
+                      alt="Olive Garden Shrimp Scampi compared with an 800-calorie, 40-gram protein target."
                       loading="lazy"
                       decoding="async"
                     />
@@ -260,20 +269,21 @@
                   <h2 data-anchor-focus>
                     Make the order <span class="chapter-emphasis">yours.</span>
                   </h2>
-                  <p>Change supported ingredients and see the totals update.</p>
+                  <p>Add sides and drinks from the menu, change servings, and see the total for the meal you’ll actually order.</p>
+                  <img class="story-food" src="assets/sides-illustration.webp?v=20261024" width="900" height="600" alt="" aria-hidden="true" loading="lazy" decoding="async" />
                 </div>
                 <figure class="scene">
                   <div class="phone">
                     <img
-                      src="assets/previews/adjust-880.webp"
+                      src="assets/previews/adjust-880.webp?v=20261024"
                       srcset="
-                        assets/previews/adjust-440.webp 440w,
-                        assets/previews/adjust-880.webp 880w
+                        assets/previews/adjust-440.webp?v=20261024 440w,
+                        assets/previews/adjust-880.webp?v=20261024 880w
                       "
                       sizes="(max-width: 600px) 80vw, 330px"
-                      width="1320"
-                      height="2868"
-                      alt="The real order editor with extra chicken selected and updated totals of 700 calories and 76 grams protein."
+                      width="1206"
+                      height="2622"
+                      alt="The whole-meal editor with Shrimp Scampi, two garlic-topped breadsticks, and updated totals of 770 calories and 37 grams protein."
                       loading="lazy"
                       decoding="async"
                     />
@@ -291,15 +301,15 @@
                 <figure class="scene">
                   <div class="phone">
                     <img
-                      src="assets/previews/edited-order-880.webp"
+                      src="assets/previews/edited-order-880.webp?v=20261024"
                       srcset="
-                        assets/previews/edited-order-440.webp 440w,
-                        assets/previews/edited-order-880.webp 880w
+                        assets/previews/edited-order-440.webp?v=20261024 440w,
+                        assets/previews/edited-order-880.webp?v=20261024 880w
                       "
                       sizes="(max-width: 600px) 80vw, 330px"
-                      width="1320"
-                      height="2868"
-                      alt="The final chicken burrito bowl ticket lists extra chicken, white rice, black beans, no sour cream and no cheese."
+                      width="1206"
+                      height="2622"
+                      alt="The full Olive Garden order lists one Shrimp Scampi and two garlic-topped breadsticks with the combined nutrition."
                       loading="lazy"
                       decoding="async"
                     />
@@ -311,26 +321,26 @@
               <div class="story-stage" id="lock-screen">
                 <div class="story-copy">
                   <h2 data-anchor-focus>
-                    <span class="chapter-emphasis">A glance away,</span> while
-                    you wait.
+                    <span class="chapter-emphasis">Found a favorite?</span>
+                    Keep it close.
                   </h2>
                   <p>
-                    Keep your order on the Lock Screen, ready when it’s your
-                    turn. Copy its numbers into your tracker.
+                    Save the whole meal for next time, with every serving included.
+                    Copy its numbers into your tracker when you’re ready.
                   </p>
                 </div>
                 <figure class="scene">
                   <div class="phone">
                     <img
-                      src="assets/previews/lock-screen-880.webp"
+                      src="assets/previews/saved-880.webp?v=20261024"
                       srcset="
-                        assets/previews/lock-screen-440.webp 440w,
-                        assets/previews/lock-screen-880.webp 880w
+                        assets/previews/saved-440.webp?v=20261024 440w,
+                        assets/previews/saved-880.webp?v=20261024 880w
                       "
                       sizes="(max-width: 600px) 80vw, 330px"
-                      width="1320"
-                      height="2868"
-                      alt="The Lock Screen shows the chicken burrito bowl and its order instructions."
+                      width="1206"
+                      height="2622"
+                      alt="Saved keeps the Shrimp Scampi, two breadsticks, and the meal’s combined nutrition."
                       loading="lazy"
                       decoding="async"
                     />
@@ -403,6 +413,7 @@
         aria-labelledby="download-title"
       >
         <div class="pilot-heading">
+          <img class="invitation-food" src="assets/favorite-illustration.webp?v=20261024" width="900" height="600" alt="" aria-hidden="true" loading="lazy" decoding="async" />
           <h2 id="download-title">Your next meal,<br />a little more decided.</h2>
         </div>
         <div class="pilot-action">
@@ -421,7 +432,7 @@
       <div class="footer-brand">
         <a class="brand" href="index.html"
           ><img
-            src="assets/dinesense-mark.webp"
+            src="assets/dinesense-mark.webp?v=20261024"
             width="36"
             height="36"
             alt=""

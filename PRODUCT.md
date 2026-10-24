@@ -8,11 +8,13 @@ web
 
 ## Users and purpose
 
-People deciding what to order at restaurants, equally including people who bring a meal's calories and macros from a tracker and people who choose Lighter, Regular meal, or More protein without setting numbers. The website explains the current SwiftUI iPhone app and links to its U.S. App Store listing. Public restaurant order guides also help visitors inspect a complete order, its counted servings and its published nutrition source.
+People deciding what to order at restaurants, equally including people who bring a meal's calories and macros from a tracker and people who choose Lighter, Regular meal, or More protein without setting numbers. The website explains the SwiftUI iPhone app, explicitly previews the upcoming light whole-meal update, and links to its U.S. App Store listing. The public release remains 1.1.0 until a separate app release is completed. Public restaurant order guides also help visitors inspect a complete order, its counted servings and its published nutrition source.
 
 ## Capabilities and constraints
 
 The app finds and ranks dishes near the phone, shows nutrition provenance, supports order changes, keeps saved dishes and picks, copies numbers into a tracker, and displays an order on the Lock Screen. Published nutrition and estimates stay visibly distinct. DineSense keeps no food diary. Apple Health is optional and read-only. An account is required. The first search and order are free; continued use requires DineSense Pro. Pricing and current terms are shown in the app. It is available in the U.S. on iPhone with iOS 26 or later at https://apps.apple.com/us/app/dinesense/id6816440061. Do not claim Android availability, automatic tracker sync, restaurant ordering/payment, or universal menu coverage.
+
+The upcoming app supports one main item plus up to seven extras from the restaurant's available nutrition menu, with one through ten whole servings each. Totals include each serving once; source and estimate qualifications travel with saved orders. Unsupported drinks or sides are not invented, and an item's figures may already include sides. Whole-meal sharing uses a card and complete text because the legacy compact link cannot encode extras. Watch, Arrival reminders and Point at the menu remain removed. The website does not claim that these upcoming capabilities have shipped: the app migration, real-device checks and StoreKit acceptance remain separate release work.
 
 The guide index at /guides/ links to Chipotle, Chick-fil-A and Panda Express examples. Each guide gives an exact order, a standard-serving nutrition calculation, published source links and a checked date, exclusions and portion qualifications, a shared-order link and an App Store action. These are order examples, not personal nutrition recommendations or measurements of the meal served. Restaurant portions and menus can change. Restaurant names are attributed to their owners, without implying endorsement.
 
@@ -20,13 +22,13 @@ Product truth comes from the current DineSense SwiftUI implementation, PRODUCT.m
 
 ## Evidence
 
-Website previews use real screens captured from the current app in its deterministic demo mode. They demonstrate UI, not live menu coverage or deployed-backend acceptance. Per the user's distill direction, the landing page omits demo-data descriptors and repetitive screenshot captions. Capture provenance and refresh steps remain in assets/SOURCES.md. Keep approximation marks within the screenshots intact. Do not invent testimonials, adoption figures, endorsements, or nutrition accuracy guarantees.
+Website previews use six real light screens from the upcoming whole-meal branch in deterministic demo mode. The hero visibly labels this as the next update. The simple screen is from the final light-only iPhone 17 capture; target, results, adjust, edited-order and saved are from the earlier iPhone 17 Pro light captures on the same branch base. They are not a screenshot set from public 1.1.0. They demonstrate UI, not live menu coverage or deployed-backend acceptance. Per the user's distill direction, the landing page omits demo-data descriptors and repetitive screenshot captions. Capture provenance and refresh steps remain in assets/SOURCES.md. Keep approximation marks within the screenshots intact. Do not invent testimonials, adoption figures, endorsements, or nutrition accuracy guarantees.
 
 Guide arithmetic is generated from the same published component rows used by the app. The generator checks expected totals and shared-order encode/decode round trips. Sources, serving sizes, exclusions and checked dates are visible in each guide; the build also writes guide-evidence.json. Keep these published figures distinct from the homepage’s deterministic demo captures. Local guide finish captures support visual review only, not deployed-site, live-backend or real-device release acceptance.
 
 ## Brand commitments
 
-DineSense's plate-and-spark mark, Fraunces display type, warm black, cream, sage, and restrained brass. Warm, exact, unhurried copy. User-approved dark cinematic presentation, actual app previews, and guided scroll motion. Both audiences receive equal prominence.
+DineSense's plate-and-spark mark, warm ivory, botanical green actions, warm ink and restrained brass. The website retains Fraunces display type; the native app uses system type. The user's final direction is light-only for both app and website, superseding the earlier dark cinematic presentation. Warm, exact, unhurried copy, actual app previews and native guided scroll motion remain. Three distinct original conceptual food illustrations support the hero, customization and closing invitation; they do not represent named restaurant dishes. Both audiences receive equal prominence.
 
 ## Delivery
 

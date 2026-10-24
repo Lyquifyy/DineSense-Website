@@ -1,12 +1,14 @@
 {
-  "prompt": "DineSense SwiftUI simulator capture, demo data; source commit b783e95; 2026-10-11; scenario find; screenshot adjust. Resized only.",
-  "kind": "actual-app-screenshot",
-  "sourceCommit": "b783e95",
-  "capturedAt": "2026-10-11",
-  "dimensions": [
-    880,
-    1912
-  ],
-  "derivedWithoutRetouching": true,
-  "details": "See assets/SOURCES.md for scenario and refresh steps."
+  "prompt": "Direct unretouched DineSense Debug app capture, October 24 2026, codex/whole-meal working tree based on 7701928. iPhone 17 Pro / iOS 26.5 Simulator, light appearance captured at about 12:06 America/Chicago, before the final light-only correction. Source in the DineSense worktree: apple/launch/whole-meal-carousel/source/carousel-03-editor.png. Deterministic demo UI for the upcoming update, not public release 1.1.0 or live-backend acceptance. Scenario: adjust. Resized to 880 pixels wide, WebP quality 90; original figures, text, source labels and screen furniture unchanged.",
+  "createdAt": "2026-10-24T19:38:14.524Z",
+  "captureOrigin": {
+    "appWorkingTreeBase": "7701928",
+    "device": "iPhone 17 Pro",
+    "os": "iOS 26.5",
+    "capturedOn": "2026-10-24",
+    "localTime": "about 12:06",
+    "timezone": "America/Chicago",
+    "source": "apple/launch/whole-meal-carousel/source/carousel-03-editor.png",
+    "appearance": "light"
+  }
 }
