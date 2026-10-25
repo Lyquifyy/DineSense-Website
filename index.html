@@ -18,6 +18,31 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://dinesense.app/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://dinesense.app/#organization",
+            "name": "DineSense",
+            "url": "https://dinesense.app/",
+            "logo": "https://dinesense.app/assets/dinesense-mark.webp",
+            "email": "dinesense.feedback@gmail.com",
+            "sameAs": ["https://apps.apple.com/us/app/dinesense/id6816440061"]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://dinesense.app/#website",
+            "url": "https://dinesense.app/",
+            "name": "DineSense",
+            "publisher": { "@id": "https://dinesense.app/#organization" }
+          }
+        ]
+      }
+    </script>
     <link rel="icon" href="assets/dinesense-mark.webp?v=20261024" type="image/webp" />
     <link
       rel="preload"
@@ -33,7 +58,7 @@
       imagesrcset="assets/previews/edited-order-440.webp?v=20261024-find 440w, assets/previews/edited-order-880.webp?v=20261024-find 880w"
       imagesizes="(max-width: 650px) 44vw, 270px"
     />
-    <link rel="stylesheet" href="styles.css?v=20261024" />
+    <link rel="stylesheet" href="styles.css?v=20261025" />
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -45,7 +70,7 @@
     FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance -->
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header shell">
-      <a class="brand" href="index.html" aria-label="DineSense home"
+      <a class="brand" href="/" aria-label="DineSense home"
         ><img
           src="assets/dinesense-mark.webp?v=20261024"
           width="40"
@@ -54,7 +79,8 @@
         /><span>DineSense</span></a
       >
       <nav aria-label="Main navigation">
-        <a href="index.html#how-it-works">The app</a
+        <a href="#how-it-works">The app</a
+        ><a href="/guides/">Order guides</a
         ><a href="support.html">Support</a
         ><a
           class="nav-cta"
@@ -68,7 +94,7 @@
     <main id="main">
       <section class="hero shell" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <h1 id="hero-title" data-anchor-focus>
+          <h1 id="hero-title" data-anchor-focus="">
             <span class="hero-title-main"
               >Know what<br />
               <span class="order-word">to order</span>
@@ -76,8 +102,9 @@
             <span class="hero-title-coda">before you get in line.</span>
           </h1>
           <p class="hero-description">
-            Bring your meal’s numbers or choose a meal style. Find a nearby
-            dish, make it yours, and know what to ask for.
+            DineSense is an iPhone app for deciding what to order at a
+            restaurant. Bring your meal’s numbers or choose a meal style. Find
+            a nearby dish, make it yours, and know what to ask for.
           </p>
           <div class="hero-actions">
             <a
@@ -374,7 +401,11 @@
           <h2>Know the source.</h2>
           <p>
             Published nutrition links to its source. Estimates stay clearly
-            marked.
+            marked. See the arithmetic in three order guides:
+            <a href="/guides/chipotle-40g-protein/">a Chipotle bowl with 48 g protein</a>,
+            <a href="/guides/chick-fil-a-under-600-calories/">a Chick-fil-A order under 600 calories</a>
+            and
+            <a href="/guides/panda-express-under-600-calories/">a Panda Express order under 600 calories</a>.
           </p>
         </div>
       </section>
@@ -388,7 +419,8 @@
             <p>
               An iPhone with iOS 26+ and a DineSense account. Your first search
               and order are free. Continued use requires DineSense Pro;
-              plans are shown in the app.
+              plans are shown in the app. Read
+              <a href="privacy.html">what DineSense keeps about your account</a>.
             </p>
           </details>
           <details>
@@ -402,7 +434,9 @@
             <summary>Will every restaurant have a menu?</summary>
             <p>
               Coverage varies. Find a missing menu online or photograph it in
-              the app. Those dishes are marked as estimates.
+              the app. Those dishes are marked as estimates. If a dish’s
+              numbers look wrong,
+              <a href="support.html">send DineSense support a menu correction</a>.
             </p>
           </details>
         </div>
@@ -430,7 +464,7 @@
     </main>
     <footer class="site-footer shell">
       <div class="footer-brand">
-        <a class="brand" href="index.html"
+        <a class="brand" href="/"
           ><img
             src="assets/dinesense-mark.webp?v=20261024"
             width="36"
@@ -440,7 +474,8 @@
         >
       </div>
       <nav aria-label="Footer">
-        <a href="/guides/">Order guides</a><a href="privacy.html">Privacy</a><a href="support.html">Support</a
+        <a href="/guides/">Order guides</a><a href="about.html">About</a
+        ><a href="privacy.html">Privacy</a><a href="support.html">Support</a
         ><a href="mailto:dinesense.feedback@gmail.com">Contact</a>
       </nav>
       <p class="copyright">© 2026 DineSense</p>
