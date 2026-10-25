@@ -1387,6 +1387,20 @@ details p a {
 .preview-note { margin-top: 22px; max-width: 42ch; color: var(--muted); font-size: 14px; line-height: 1.55; }
 .preview-note strong { color: var(--sage); }
 .hero-food { position: absolute; width: 230px; right: -10px; bottom: 10px; z-index: 5; pointer-events: none; }
+/* The tilted plate, outer phones and food art reach past the stage; draw the
+   scene a little smaller so the clipped hero keeps them. Side by side with
+   the copy it shrinks from its left edge; stacked on phones, from its center. */
+.hero-depth {
+  transform: perspective(1100px) rotateX(var(--tilt-x, 0deg))
+    rotateY(var(--tilt-y, 0deg)) scale(0.88);
+}
+@media (min-width: 651px) {
+  .hero-depth {
+    transform: perspective(1100px) rotateX(var(--tilt-x, 0deg))
+      rotateY(var(--tilt-y, 0deg)) scale(0.9);
+    transform-origin: 0 50%;
+  }
+}
 @media (max-width: 650px) {
   .hero-stage { margin: 0 auto 110px; }
   .hero-food { width: 170px; right: 0; top: calc(100% + 12px); bottom: auto; }
