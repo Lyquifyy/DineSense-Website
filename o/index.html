@@ -6,18 +6,42 @@
     <meta name="theme-color" content="#f6f5f2" />
     <meta
       name="description"
-      content="An order someone shared from DineSense: the dish, what to ask for, and its calories and macros."
+      content="An order someone shared from DineSense: the restaurant, the dish, exactly what to ask for, and its calories, protein, carbs and fat."
     />
-    <title>A shared order — DineSense</title>
-    <meta property="og:title" content="A shared order — DineSense" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <title>A shared restaurant order from DineSense</title>
+    <link rel="canonical" href="https://dinesense.app/o/" />
+    <meta property="og:title" content="A shared restaurant order from DineSense" />
     <meta
       property="og:description"
       content="The dish, the exact order to ask for, and its calories and macros. Open it in DineSense."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://dinesense.app/o" />
+    <meta property="og:url" content="https://dinesense.app/o/" />
     <meta property="og:image" content="https://dinesense.app/assets/share-preview.png" />
     <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://dinesense.app/#organization",
+            "name": "DineSense",
+            "url": "https://dinesense.app/",
+            "logo": "https://dinesense.app/assets/dinesense-mark.webp",
+            "email": "dinesense.feedback@gmail.com",
+            "sameAs": ["https://apps.apple.com/us/app/dinesense/id6816440061"]
+          },
+          {
+            "@type": "WebPage",
+            "url": "https://dinesense.app/o/",
+            "name": "A shared restaurant order from DineSense",
+            "publisher": { "@id": "https://dinesense.app/#organization" }
+          }
+        ]
+      }
+    </script>
     <!-- Apple's Smart App Banner: filled in once the app is on the App Store
          (App Store Connect > App Information > Apple ID). The same id goes in
          data-app-store below. -->
@@ -28,7 +52,7 @@
   <body data-app-store="6816440061">
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header shell">
-      <a class="brand" href="../index.html" aria-label="DineSense home"
+      <a class="brand" href="/" aria-label="DineSense home"
         ><img
           src="../assets/dinesense-mark.webp?v=20261024"
           width="40"
@@ -37,7 +61,8 @@
         /><span>DineSense</span></a
       >
       <nav aria-label="Main navigation">
-        <a href="../index.html#how-it-works">The app</a
+        <a href="/#how-it-works">The app</a
+        ><a href="/guides/">Order guides</a
         ><a href="../support.html">Support</a>
       </nav>
     </header>
@@ -68,18 +93,20 @@
         </p>
       </section>
       <p class="order-actions">
-        <a class="button button-primary" id="open" href="../index.html"
+        <a class="button button-primary" id="open" href="/"
           >Open in DineSense <span aria-hidden="true">↗</span></a
         >
       </p>
       <p class="info-note" id="get-note">
-        DineSense finds restaurant dishes near you and shows the exact order
-        that fits this meal. iPhone, iOS 26 or later.
+        DineSense is an iPhone app that finds restaurant dishes near you and
+        shows the exact order that fits your meal. iPhone, iOS 26 or later.
+        See <a href="/#how-it-works">how DineSense finds an order</a>, or read
+        <a href="/guides/">restaurant order guides with the arithmetic shown</a>.
       </p>
     </main>
     <footer class="site-footer shell">
       <div class="footer-brand">
-        <a class="brand" href="../index.html"
+        <a class="brand" href="/"
           ><img
             src="../assets/dinesense-mark.webp?v=20261024"
             width="36"
@@ -90,7 +117,8 @@
         <p>For the meal in front of you.</p>
       </div>
       <nav aria-label="Footer">
-        <a href="../privacy.html">Privacy</a><a href="../support.html">Support</a
+        <a href="/guides/">Order guides</a><a href="../about.html">About</a
+        ><a href="../privacy.html">Privacy</a><a href="../support.html">Support</a
         ><a href="mailto:dinesense.feedback@gmail.com">Contact</a>
       </nav>
       <p class="copyright">© 2026 DineSense</p>

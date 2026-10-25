@@ -1204,7 +1204,8 @@ details p a {
     padding-block: 30px;
   }
   .site-footer nav {
-    gap: 28px;
+    flex-wrap: wrap;
+    gap: 14px 28px;
   }
   .copyright {
     margin: 0;
